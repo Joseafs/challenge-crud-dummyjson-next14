@@ -1,6 +1,6 @@
 import { useTheme } from 'styled-components';
 
-export const useSpaceTheme = (space: number[], type: 'margin' | 'padding') => {
+export const useSpaceTheme = (space: number[] = [], type: 'margin' | 'padding') => {
   const theme = useTheme();
 
   const calc = (value: number) => value * theme.space;

@@ -1,7 +1,7 @@
 {
   "extends": ["eslint:recommended", "prettier", "next/core-web-vitals"],
 
-  "plugins": ["import"],
+  "plugins": ["import", "typescript-sort-keys"],
   "env": {
     "browser": true,
     "es6": true,
@@ -10,6 +10,22 @@
   "rules": {
     "no-unused-vars": "error",
     "no-console": "error",
+    "no-useless-rename": "error",
+
+    "react/jsx-sort-props": "error",
+    "typescript-sort-keys/interface": "error",
+    "typescript-sort-keys/string-enum": "error",
+    "sort-keys": [
+      "error",
+      "asc",
+      {
+        "caseSensitive": false,
+        "natural": true,
+        "minKeys": 2,
+        "allowLineSeparatedGroups": true
+      }
+    ],
+
     "no-restricted-imports": [
       "error",
       {
@@ -24,16 +40,6 @@
         },
         "newlines-between": "always",
         "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
-      }
-    ],
-    "sort-keys": [
-      "error",
-      "asc",
-      {
-        "caseSensitive": false,
-        "natural": true,
-        "minKeys": 2,
-        "allowLineSeparatedGroups": true
       }
     ]
   }
