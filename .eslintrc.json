@@ -1,0 +1,40 @@
+{
+  "extends": ["eslint:recommended", "prettier", "next/core-web-vitals"],
+
+  "plugins": ["import"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "no-unused-vars": "error",
+    "no-console": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["..*"]
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc"
+        },
+        "newlines-between": "always",
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
+      }
+    ],
+    "sort-keys": [
+      "error",
+      "asc",
+      {
+        "caseSensitive": false,
+        "natural": true,
+        "minKeys": 2,
+        "allowLineSeparatedGroups": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+export { apiGet } from './apiGet';

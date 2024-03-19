@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageFit Should match snapshot 1`] = `
+<div>
+  <img
+    alt="Yamamoto, the Captain-Commander of the Gotei 13, wields the fearsome Zanpakuto Ryujin Jakka. His fiery power and unwavering resolve make him a legend in Soul Society."
+    class="sc-396cbb3d-0 fJFgPN"
+    data-nimg="1"
+    decoding="async"
+    height="500"
+    loading="lazy"
+    src="/_next/image?url=%2Fimages%2Ffavicon.png&w=1080&q=75"
+    srcset="/_next/image?url=%2Fimages%2Ffavicon.png&w=640&q=75 1x, /_next/image?url=%2Fimages%2Ffavicon.png&w=1080&q=75 2x"
+    style="color: transparent;"
+    width="500"
+  />
+</div>
+`;
