@@ -4,20 +4,20 @@ import MockAdapter from 'axios-mock-adapter';
 
 import { api } from '~/services/api';
 import { AxiosErrorResponse } from '~/services/api/error/types';
-import { apiRouteExample } from '~/services/examples';
+import { apiRouteExample } from '~/services/products';
 
-import { exampleResponse } from './mock';
+import { mockProductsResponse } from './mock';
 
-import { fetchExamples } from '.';
+import { getProducts } from '.';
 
-describe('fetchExamples', () => {
+describe('getProducts', () => {
   test('should match data', async () => {
     const mock = new MockAdapter(api);
-    mock.onGet(apiRouteExample).reply(HttpStatusCode.Ok, exampleResponse);
+    mock.onGet(apiRouteExample).reply(HttpStatusCode.Ok, mockProductsResponse);
 
-    const data = await fetchExamples();
+    const data = await getProducts();
 
-    expect(data).toMatchObject(exampleResponse);
+    expect(data).toMatchObject(mockProductsResponse);
 
     mock.restore();
   });
@@ -29,7 +29,7 @@ describe('fetchExamples', () => {
     mock.onGet(apiRouteExample).reply(HttpStatusCode.BadRequest, { error: errorText });
 
     try {
-      await fetchExamples();
+      await getProducts();
     } catch (e) {
       expect((e as AxiosErrorResponse).status).toStrictEqual(HttpStatusCode.BadRequest);
       expect((e as AxiosErrorResponse).data.error).toStrictEqual(errorText);

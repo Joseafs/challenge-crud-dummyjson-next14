@@ -1,20 +1,20 @@
 import styled, { css } from 'styled-components';
 
-import { useSpaceTheme } from '~/theme/utils';
+import { useSpaceTheme, useThemeColor } from '~/theme/utils';
 
 import { PropsGrid } from './types';
 
 export const Root = styled.div<PropsGrid>`
-  ${({ mgn = [] }) => useSpaceTheme(mgn, 'margin')};
-  ${({ pdg = [] }) => useSpaceTheme(pdg, 'padding')};
+  ${({ margin }) => useSpaceTheme(margin, 'margin')};
+  ${({ padding }) => useSpaceTheme(padding, 'padding')};
+  ${({ backgroundColor }) => backgroundColor && `background-color: ${useThemeColor(backgroundColor, 'main')}`};
 
-  ${({ zind }) =>
-    zind &&
+  ${({ zIndex }) =>
+    zIndex &&
     `
     position: relative;
-    z-index: ${zind};`};
+    z-index: ${zIndex};`};
   ${({ overflow }) => overflow && `overflow: ${overflow};`};
-  ${({ bgColor }) => bgColor && `background-color: ${bgColor};`};
   ${({ align }) => align && `text-align: ${align};`};
   ${({ flex }) =>
     flex &&

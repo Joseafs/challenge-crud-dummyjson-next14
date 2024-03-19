@@ -1,13 +1,15 @@
 import { ReactNode } from 'react';
 
+import { PropsBaseColors } from '~/theme/config/types';
+
 export type PropsGrid = {
-  mgn?: number[];
-  pdg?: number[];
-  zind?: string;
-  overflow?: 'visible' | 'hidden' | 'scroll' | 'auto';
-  bgColor?: string;
-  flex?: boolean;
   align?: 'left' | 'center' | 'right';
+  backgroundColor?: PropsBaseColors;
+  flex?: boolean;
+  margin?: number[];
+  overflow?: 'visible' | 'hidden' | 'scroll' | 'auto';
+  padding?: number[];
+  zIndex?: string;
 };
 
 export interface Props extends PropsGrid {

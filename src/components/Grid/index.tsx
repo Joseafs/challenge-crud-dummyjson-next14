@@ -3,17 +3,27 @@ import { FC, memo } from 'react';
 import { Root } from './styles';
 import { Props } from './types';
 
-const OgGrid: FC<Props> = ({ children, mgn, align, pdg, zind, bgColor, overflow, flex, className }) => {
+const OgGrid: FC<Props> = ({
+  children,
+  margin,
+  align,
+  padding,
+  zIndex,
+  backgroundColor,
+  overflow,
+  flex,
+  className,
+}) => {
   return (
     <Root
-      zind={zind}
-      mgn={mgn}
       align={align}
-      pdg={pdg}
-      bgColor={bgColor}
-      overflow={overflow}
+      backgroundColor={backgroundColor}
       className={className}
       flex={flex}
+      margin={margin}
+      overflow={overflow}
+      padding={padding}
+      zIndex={zIndex}
     >
       {children}
     </Root>

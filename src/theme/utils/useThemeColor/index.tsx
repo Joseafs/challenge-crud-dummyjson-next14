@@ -5,11 +5,14 @@ import { PropsBaseColors, PropsBaseColorsOptions } from '~/theme/config/types';
 export const useThemeColor = (color?: PropsBaseColors, type?: PropsBaseColorsOptions) => {
   const theme = useTheme();
 
+  if (color && !theme.palette[color]) {
+    return theme.palette.common.black;
+  }
   if (type && color) {
     return theme.palette[color][type];
   }
   if (color) {
-    return theme.palette[color].main;
+    return theme.palette[color]?.main || '';
   }
 
   return theme.palette.common.black;
