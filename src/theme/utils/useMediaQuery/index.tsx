@@ -1,10 +1,10 @@
 /* eslint-disable sort-keys */
-import theme from '~/theme/config';
+import { useTheme } from 'styled-components';
 
 import { PropsMediaType } from './types';
 
-export const getMediaQuery = (): PropsMediaType => {
-  const { breakpoints } = theme;
+export const useMediaQuery = (): PropsMediaType => {
+  const { breakpoints } = useTheme();
 
   const maxWidth = {
     xs: `(max-width: ${breakpoints.values.xs}px)`,

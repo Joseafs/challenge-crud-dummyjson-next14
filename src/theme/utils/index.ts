@@ -1,2 +1,4 @@
-export { getMediaQuery } from './getMediaQuery';
-export { getThemeColor } from './getThemeColor';
+export { useMediaQuery } from './useMediaQuery';
+export { useThemeColor } from './useThemeColor';
+export { useSpaceTheme } from './useThemeSpace';
+export { withThemeProvider } from './withThemeProvider';

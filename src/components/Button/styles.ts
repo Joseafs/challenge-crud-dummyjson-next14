@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 
-import { getThemeColor } from '~/theme/utils/getThemeColor';
+import { useThemeColor } from '~/theme/utils';
 
 import { PropsButtonColor } from './types';
 
 export const Root = styled.button<PropsButtonColor>`
   ${({ theme, color, disabled }) => css`
     ${theme.animation.transition[0]};
-    background-color: ${getThemeColor(theme, color, 'main')};
+    background-color: ${useThemeColor(color, 'main')};
     color: ${theme.palette.common.white};
     padding: ${theme.space * 2}px;
     border-radius: ${theme.shape.radius * 2}px;
