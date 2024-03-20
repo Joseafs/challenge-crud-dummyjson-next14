@@ -9,17 +9,17 @@ exports[`TemplateScreen Should match snapshot 1`] = `
       class="sc-36588e0e-1 cvtwAa"
     >
       <button
-        class="sc-999c1705-0 gHEbJm sc-7d50a5a3-0 kXJZYA"
+        class="sc-b47ab6f0-0 HBlCt sc-c7d2da6b-0 ejOLNy"
         title="Voltar"
       >
         <svg
-          class="sc-7d50a5a3-1 jTrtZF"
+          class="sc-c7d2da6b-1 eQDbvn"
           fill="currentColor"
-          height="2rem"
+          height="1em"
           stroke="currentColor"
           stroke-width="0"
           viewBox="0 0 16 16"
-          width="2rem"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -29,9 +29,6 @@ exports[`TemplateScreen Should match snapshot 1`] = `
         </svg>
         Voltar
       </button>
-      <div>
-        Lorem user ?
-      </div>
     </header>
     <main
       class="sc-36588e0e-2 ktNfYw"

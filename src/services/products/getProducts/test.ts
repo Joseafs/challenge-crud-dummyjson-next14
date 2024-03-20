@@ -5,8 +5,10 @@ import MockAdapter from 'axios-mock-adapter';
 import { api } from '~/services/api';
 import { AxiosErrorResponse } from '~/services/api/error/types';
 import { apiRouteExample } from '~/services/products';
+import { encodeParamsToString } from '~/utils/encodeParamsToString';
 
-import { mockProductsResponse } from './mock';
+import { mockProductResponse, mockProductsResponse } from './mock';
+import { FetchProductsParams } from './types';
 
 import { getProducts } from '.';
 
@@ -18,6 +20,39 @@ describe('getProducts', () => {
     const data = await getProducts();
 
     expect(data).toMatchObject(mockProductsResponse);
+
+    mock.restore();
+  });
+
+  test('should match data when get by id', async () => {
+    const mock = new MockAdapter(api);
+    const id = faker.number.int(100);
+
+    const getRouteWithId = `${apiRouteExample}/${id}`;
+
+    mock.onGet(getRouteWithId).reply(HttpStatusCode.Ok, mockProductResponse);
+
+    const data = await getProducts({ id });
+
+    expect(data).toMatchObject(mockProductResponse);
+
+    mock.restore();
+  });
+
+  test('should match data with query params', async () => {
+    const mock = new MockAdapter(api);
+    const queryParams: FetchProductsParams['query'] = {
+      limit: 12,
+      skip: 58,
+    };
+
+    const getRouteWithParams = `${apiRouteExample}?${encodeParamsToString(queryParams)}`;
+
+    mock.onGet(getRouteWithParams).reply(HttpStatusCode.Ok, mockProductResponse);
+
+    const data = await getProducts({ query: queryParams });
+
+    expect(data).toMatchObject(mockProductResponse);
 
     mock.restore();
   });
