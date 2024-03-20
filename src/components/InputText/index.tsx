@@ -1,6 +1,6 @@
 import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
 
-import { Input, Label, Root } from './styled';
+import { Input, Label, Root, Span } from './styled';
 
 interface Props {
   label?: string;
@@ -17,7 +17,11 @@ interface Props {
 const OgInputText = ({ name, type, label, value, min, max, required, placeholder, onChange }: Props) => {
   return (
     <Root>
-      {label && <Label htmlFor={name}>{label}</Label>}
+      {label && (
+        <Label htmlFor={name}>
+          <Span>{label}</Span>
+        </Label>
+      )}
       <Input
         data-testid={`input-${name}`}
         id={name}

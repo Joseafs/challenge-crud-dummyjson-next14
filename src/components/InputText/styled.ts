@@ -1,11 +1,46 @@
 import styled, { css } from 'styled-components';
 
+import { useThemeFontStyle } from '~/theme/utils';
+
 export const Root = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
 `;
-export const Label = styled.label``;
+
+export const Label = styled.label`
+  z-index: 2;
+
+  ${({ theme }) => css`
+    margin-top: -${theme.space}px;
+    margin-bottom: -${theme.space}px;
+    margin-left: ${theme.space * 2}px;
+  `}
+`;
+export const Span = styled.div`
+  display: inline-block;
+  position: relative;
+
+  &:before {
+    content: '';
+    z-index: -10;
+    top: 9px;
+    height: 4px;
+    background-color: #fff;
+    position: absolute;
+  }
+
+  ${({ theme }) => css`
+    ${useThemeFontStyle('normal')}
+    font-weight: ${theme.fontWeights.semiBold};
+    color: ${theme.palette.secondary.main};
+
+    &:before {
+      left: -${theme.space}px;
+      width: calc(100% + ${theme.space * 2}px);
+    }
+  `}
+`;
 
 export const Input = styled.input`
   display: flex;
@@ -13,8 +48,8 @@ export const Input = styled.input`
   outline: unset;
 
   ${({ theme }) => css`
-    padding: ${theme.space * 1}px;
+    padding: ${theme.space}px;
     border-radius: ${theme.shape.radius}px;
-    border: solid 1px ${theme.palette.primary.main};
+    border: solid 2px ${theme.palette.secondary.main};
   `}
 `;
