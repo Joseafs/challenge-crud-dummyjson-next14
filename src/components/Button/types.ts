@@ -7,8 +7,10 @@ export type PropsButtonColor = {
 };
 
 export interface Props extends PropsWithChildren, PropsButtonColor {
-  type?: ButtonHTMLAttributes<undefined>['type'];
-  text?: string;
+  className?: string;
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  text?: string;
+  title?: string;
+  type?: ButtonHTMLAttributes<undefined>['type'];
 }

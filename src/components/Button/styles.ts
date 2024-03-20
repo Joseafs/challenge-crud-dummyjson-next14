@@ -5,6 +5,7 @@ import { useThemeColor } from '~/theme/utils';
 import { PropsButtonColor } from './types';
 
 export const Root = styled.button<PropsButtonColor>`
+  cursor: pointer;
   ${({ theme, color, disabled }) => css`
     ${theme.animation.transition[0]};
     background-color: ${useThemeColor(color, 'main')};

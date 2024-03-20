@@ -4,7 +4,7 @@ import { useServerInsertedHTML } from 'next/navigation';
 import { FC, PropsWithChildren, useState } from 'react';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 
-export const StyledComponentsRegistry: FC<PropsWithChildren> = ({ children }) => {
+export const StyledComponentsNextRegistry: FC<PropsWithChildren> = ({ children }) => {
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
 
   useServerInsertedHTML(() => {

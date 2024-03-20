@@ -3,6 +3,7 @@
 import { FC, useCallback, useState } from 'react';
 
 import { Button, Grid } from '~/components';
+import { TemplateScreen } from '~/components/TemplateScreen';
 
 import { ProductsCards } from './components/ProductsTableData';
 
@@ -14,7 +15,7 @@ export const ProductsListScreen: FC = () => {
   }, [count]);
 
   return (
-    <main>
+    <TemplateScreen>
       <h1>Header Lorem Ipsum </h1>
       <br />
       <Grid backgroundColor="primary" margin={[1]} padding={[1]}>
@@ -28,6 +29,6 @@ export const ProductsListScreen: FC = () => {
       <ProductsCards count={count} />
       <br />
       <h2>Footer Lorem Ipsum </h2>
-    </main>
+    </TemplateScreen>
   );
 };

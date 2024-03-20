@@ -1,22 +1,14 @@
 'use client';
 
-import { Quicksand } from 'next/font/google';
 import { createGlobalStyle } from 'styled-components';
-
-const quicksand = Quicksand({ subsets: ['latin'] });
-
-import { PropsRootTheme } from './types';
 
 export const GlobalStyles = createGlobalStyle`
 
   :root {
-    --primary: ${({ theme }: PropsRootTheme) => theme.palette.primary.main};
-    --secondary: ${({ theme }: PropsRootTheme) => theme.palette.secondary.main};
+    font-size: 62.5%;
   }
 
-  *,
-  ::after,
-  ::before {
+  *, ::after, ::before {
     box-sizing: border-box;
   }
 
@@ -28,7 +20,6 @@ export const GlobalStyles = createGlobalStyle`
     max-width: 100%;
     min-height: 100%;
     margin: 0;
-    font-family: ${quicksand.style.fontFamily};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { FC, PropsWithChildren } from 'react';
 
-import { StyledComponentsRegistry } from '~/theme/StyledComponentsRegistry';
 import theme from '~/theme/config';
-import { GlobalStyles } from '~/theme/config/globals';
+import { GlobalStylesThemed } from '~/theme/config/globalsThemed';
 import { ThemeProvider } from '~/theme/provider';
+import { StyledComponentsNextRegistry } from '~/theme/provider/StyledComponentsNextRegistry';
 
 export const metadata: Metadata = {
   description: 'Generated with next 14 and styled-components for new challenges and projects',
@@ -15,10 +15,12 @@ export const metadata: Metadata = {
 const RootLayout: FC<PropsWithChildren> = ({ children }) => (
   <html lang="pt-BR">
     <body>
-      <StyledComponentsRegistry>
-        <GlobalStyles theme={theme} />
-        <ThemeProvider>{children}</ThemeProvider>
-      </StyledComponentsRegistry>
+      <StyledComponentsNextRegistry>
+        <ThemeProvider>
+          <GlobalStylesThemed theme={theme} />
+          {children}
+        </ThemeProvider>
+      </StyledComponentsNextRegistry>
     </body>
   </html>
 );
