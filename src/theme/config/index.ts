@@ -1,3 +1,4 @@
+/* eslint-disable sort-keys */
 import { PropsTheme } from './types';
 
 export const theme: PropsTheme = {
@@ -17,11 +18,11 @@ export const theme: PropsTheme = {
     keys: ['xs', 'sm', 'md', 'lg', 'xl'],
 
     values: {
-      lg: 1280,
-      md: 1024,
-      sm: 768,
-      xl: 1536,
       xs: 512,
+      sm: 768,
+      md: 1024,
+      lg: 1280,
+      xl: 1536,
     },
     width: {
       desktop: '1120px',
@@ -30,8 +31,6 @@ export const theme: PropsTheme = {
     },
   },
   palette: {
-    mode: 'light',
-
     common: {
       black: 'rgb(0, 0, 0)',
       inherit: 'inherit',
@@ -85,6 +84,7 @@ export const theme: PropsTheme = {
     '0 0 6px 0px rgba(0, 0, 0, .4)',
     '0 6px 8px rgba(0, 0, 0, 0.2)',
   ],
+
   shape: {
     radius: 4,
   },
@@ -96,6 +96,35 @@ export const theme: PropsTheme = {
     screen: 1000,
     snackbar: 1400,
     tooltip: 1500,
+  },
+
+  fontSizes: {
+    inherit: 'inherit',
+    small: '12px',
+    medium: '16px',
+    large: '24px',
+    extraLarge: '32px',
+    titleSmall: '36px',
+    titleLarge: '48px',
+  },
+  fontLineHeights: {
+    inherit: 'inherit',
+    small: '15px',
+    medium: '21px',
+    large: '29px',
+    extraLarge: '39px',
+    titleSmall: '44px',
+    titleLarge: '59px',
+  },
+  fontWeights: {
+    thin: '100',
+    extraLight: '200',
+    light: '300',
+    normal: '400',
+    medium: '500',
+    semiBold: '600',
+    bold: '700',
+    extraBold: '800',
   },
 };
 

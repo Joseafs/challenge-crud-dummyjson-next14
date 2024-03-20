@@ -1,16 +1,36 @@
+/* eslint-disable typescript-sort-keys/interface */
 export type PropsRootTheme = { theme: PropsTheme };
 
-export type WeightProps = 400 | 500 | 600 | 700 | 800;
-
-type PropsPallete = {
+export type PropsThemeColors = 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
+interface PropsThemeColorTypes {
   main: string;
   light?: string;
   dark?: string;
   text?: string;
-};
+}
+
+export type PropsThemeColorTypesKeys = keyof PropsThemeColorTypes;
+
+interface PropsFontSizes {
+  small: string;
+  medium: string;
+  large: string;
+  extraLarge: string;
+  titleSmall: string;
+  titleLarge: string;
+  inherit: string;
+}
+
+export type PropsFontSizesKeys = keyof PropsFontSizes;
 
 export type PropsTheme = {
   name: string;
+
+  animation: {
+    transition: string[];
+    hover: any[];
+    active: string[];
+  };
   breakpoints: {
     keys: string[];
     width: {
@@ -29,19 +49,17 @@ export type PropsTheme = {
     };
   };
   palette: {
-    [key: string]: PropsPallete | any;
-    mode: string;
     common: {
       black: string;
       inherit: string;
       white: string;
     };
-    primary: PropsPallete;
-    secondary: PropsPallete;
-    error: PropsPallete;
-    warning: PropsPallete;
-    info: PropsPallete;
-    success: PropsPallete;
+    primary: PropsThemeColorTypes;
+    secondary: PropsThemeColorTypes;
+    error: PropsThemeColorTypes;
+    warning: PropsThemeColorTypes;
+    info: PropsThemeColorTypes;
+    success: PropsThemeColorTypes;
     grey: {
       [key: string]: string;
       50: string;
@@ -74,15 +92,17 @@ export type PropsTheme = {
     snackbar: number;
     menu: number;
   };
-  animation: {
-    transition: string[];
-    hover: any[];
-    active: string[];
+
+  fontSizes: PropsFontSizes;
+  fontLineHeights: PropsFontSizes;
+  fontWeights: {
+    bold: string;
+    extraBold: string;
+    extraLight: string;
+    light: string;
+    medium: string;
+    normal: string;
+    semiBold: string;
+    thin: string;
   };
 };
-
-export type PropsBaseColors = 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
-
-export type PropsBaseColorsOptions = 'light' | 'dark' | 'main' | 'text';
-
-export type PropsWeight = 300 | 400 | 500 | 600 | 700 | 800;

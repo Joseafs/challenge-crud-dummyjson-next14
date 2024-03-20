@@ -3,10 +3,20 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  // Todo: Remove after finish tests
+  // TODO: Remove after finish tests
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'cdn.dummyjson.com',
+        protocol: 'https',
+      },
+    ],
+  },
+
+  trailingSlash: true,
 };
 
 export default nextConfig;

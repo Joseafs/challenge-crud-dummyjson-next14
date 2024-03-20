@@ -1,4 +1,5 @@
 export { useMediaQuery } from './useMediaQuery';
 export { useThemeColor } from './useThemeColor';
-export { useSpaceTheme } from './useThemeSpace';
+export { useThemeFontStyle } from './useThemeFontStyle';
+export { useThemeSpace } from './useThemeSpace';
 export { withThemeProvider } from './withThemeProvider';

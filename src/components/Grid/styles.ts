@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 
-import { useSpaceTheme, useThemeColor } from '~/theme/utils';
+import { useThemeColor, useThemeSpace } from '~/theme/utils';
 
 import { PropsGrid } from './types';
 
 export const Root = styled.div<PropsGrid>`
-  ${({ margin }) => useSpaceTheme(margin, 'margin')};
-  ${({ padding }) => useSpaceTheme(padding, 'padding')};
+  ${({ margin }) => useThemeSpace(margin, 'margin')};
+  ${({ padding }) => useThemeSpace(padding, 'padding')};
   ${({ backgroundColor }) => backgroundColor && `background-color: ${useThemeColor(backgroundColor, 'main')}`};
 
   ${({ zIndex }) =>

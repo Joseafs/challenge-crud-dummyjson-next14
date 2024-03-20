@@ -1,8 +1,8 @@
 export interface FetchProductsQueryParams {
-  search?: string;
   limit?: number;
-  skip?: number;
+  search?: string;
   select?: string;
+  skip?: number;
 }
 
 export interface FetchProductsParams {
@@ -10,6 +10,22 @@ export interface FetchProductsParams {
   query?: Partial<FetchProductsQueryParams>;
 }
 
+export interface Product {
+  brand: string;
+  category: string;
+  description: string;
+  discountPercentage: number;
+  id: number;
+  images: string[];
+  price: number;
+  rating: number;
+  stock: number;
+  thumbnail: string;
+  title: string;
+}
 export interface ProductsResponse {
-  products: [];
+  limit: number;
+  products: Product[];
+  skip: number;
+  total: number;
 }

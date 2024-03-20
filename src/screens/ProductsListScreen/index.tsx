@@ -4,7 +4,9 @@ import { FC, useCallback, useState } from 'react';
 
 import { Button, Grid } from '~/components';
 
-export const HomeScreen: FC = () => {
+import { ProductsCards } from './components/ProductsTableData';
+
+export const ProductsListScreen: FC = () => {
   const [count, setCount] = useState(2);
 
   const handleClick = useCallback(() => {
@@ -13,17 +15,19 @@ export const HomeScreen: FC = () => {
 
   return (
     <main>
-      <h1>Need Header sadsada </h1>
+      <h1>Header Lorem Ipsum </h1>
       <br />
       <Grid backgroundColor="primary" margin={[1]} padding={[1]}>
-        Lorem ipsum
+        Search(title, brand) --- Select category
       </Grid>
       <br />
       <Button color="primary" onClick={handleClick}>
         {count}
       </Button>
       <br />
-      <h2>Need Footer </h2>
+      <ProductsCards count={count} />
+      <br />
+      <h2>Footer Lorem Ipsum </h2>
     </main>
   );
 };

@@ -10,7 +10,7 @@ const imageDescription = 'Paisagem com nuvens montanhas e arvores com not found 
 export const NotFoundScreen: FC = () => (
   <main>
     <ScreenCentralized>
-      <ImageFit src={`images/${imageName}`} description={imageDescription} width={900} height={900} objectFit="cover" />
+      <ImageFit description={imageDescription} fill fit="cover" src={`images/${imageName}`} />
     </ScreenCentralized>
   </main>
 );
