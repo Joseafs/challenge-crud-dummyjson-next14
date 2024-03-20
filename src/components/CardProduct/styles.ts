@@ -5,7 +5,6 @@ import { useThemeFontStyle, useThemeSpace } from '~/theme/utils';
 export const Root = styled.div`
   max-width: 400px;
   margin: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   background-color: bisque;
   cursor: pointer;
@@ -13,14 +12,12 @@ export const Root = styled.div`
   ${({ theme }) => css`
     ${theme.animation.transition[0]};
 
+    box-shadow: ${theme.shadows[1]};
     border-radius: ${theme.shape.radius * 2}px;
     ${theme.shadows[1]};
 
     &:hover {
-      ${theme.animation.hover[0]};
-    }
-    &:active {
-      ${theme.animation.active[1]};
+      box-shadow: ${theme.shadows[3]};
     }
   `}
 `;

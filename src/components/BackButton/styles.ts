@@ -6,7 +6,7 @@ import { useThemeFontStyle } from '~/theme/utils';
 
 export const RootButton = styled(Button)`
   position: relative;
-  padding-left: 35px;
+  padding-left: 30px;
 
   ${({ theme }) => css`
     ${useThemeFontStyle('medium')}
@@ -19,6 +19,7 @@ export const IconChevron = styled(BsChevronLeft)`
   top: 50%;
   transform: translateY(-50%);
   ${({ theme }) => css`
+    font-size: ${theme.fontSizes.medium};
     left: ${theme.space}px;
   `}
 `;

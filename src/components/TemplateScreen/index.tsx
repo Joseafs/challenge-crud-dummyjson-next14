@@ -10,8 +10,6 @@ type Props = {
 };
 
 export const TemplateScreen: FC<Props> = ({ children }) => {
-  // TODO: backButton?
-  // TODO: Header?
   const router = useRouter();
 
   const onBack = useCallback(() => {
@@ -22,9 +20,10 @@ export const TemplateScreen: FC<Props> = ({ children }) => {
     <Root>
       <Header>
         <BackButton onClick={onBack} />
-        <div>Lorem user ?</div>
+        {/* TODO: circle with user image ? */}
       </Header>
       <Body>{children}</Body>
+      {/* TODO: footer ? */}
     </Root>
   );
 };

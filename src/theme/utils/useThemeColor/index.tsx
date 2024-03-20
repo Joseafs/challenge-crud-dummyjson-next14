@@ -1,8 +1,8 @@
 import { useTheme } from 'styled-components';
 
-import { PropsThemeColors, PropsThemeColorTypesKeys } from '~/theme/config/types';
+import { PropsThemeColorTypesKeys, PropsThemePaletteKeys } from '~/theme/config/types';
 
-export const useThemeColor = (color?: PropsThemeColors, type?: PropsThemeColorTypesKeys) => {
+export const useThemeColor = (color?: PropsThemePaletteKeys, type?: PropsThemeColorTypesKeys) => {
   const theme = useTheme();
 
   if (color && !theme.palette[color]) {

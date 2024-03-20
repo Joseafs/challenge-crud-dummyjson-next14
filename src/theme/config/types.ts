@@ -1,7 +1,7 @@
 /* eslint-disable typescript-sort-keys/interface */
 export type PropsRootTheme = { theme: PropsTheme };
 
-export type PropsThemeColors = 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
+export type PropsThemePaletteKeys = 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
 interface PropsThemeColorTypes {
   main: string;
   light?: string;

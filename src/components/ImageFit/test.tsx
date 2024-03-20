@@ -9,7 +9,7 @@ const imagePublicPath = '/images/favicon.png';
 describe('ImageFit', () => {
   test('Should match snapshot', () => {
     const { container } = render(
-      <ImageFit src={imagePublicPath} description={snapshotYamamotoDescription} width={500} height={500} />,
+      <ImageFit description={snapshotYamamotoDescription} height={500} src={imagePublicPath} width={500} />,
     );
     expect(container).toMatchSnapshot();
   });

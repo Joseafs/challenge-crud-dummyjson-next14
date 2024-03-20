@@ -1,11 +1,12 @@
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
-import { PropsThemeColors } from '~/theme/config/types';
+import { PropsThemePaletteKeys } from '~/theme/config/types';
 
 export type PropsGrid = {
   align?: 'left' | 'center' | 'right';
-  backgroundColor?: PropsThemeColors;
-  flex?: boolean;
+  backgroundColor?: PropsThemePaletteKeys;
+  displayContent?: CSSProperties['justifyContent'];
+  displayType?: CSSProperties['display'];
   margin?: number[];
   overflow?: 'visible' | 'hidden' | 'scroll' | 'auto';
   padding?: number[];

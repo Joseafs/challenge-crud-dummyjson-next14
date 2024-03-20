@@ -18,7 +18,7 @@ export const Root = styled.button<PropsButtonColor>`
       ${theme.animation.hover[0]};
     }
     &:active {
-      ${theme.animation.active[0]};
+      ${theme.animation.active[1]};
     }
 
     ${disabled &&

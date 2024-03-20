@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid Should match snapshot 1`] = `
+<div>
+  <div
+    class="sc-afdc3189-0 fbBWDw"
+  >
+    Genryusai Shigekuni Yamamoto
+  </div>
+</div>
+`;

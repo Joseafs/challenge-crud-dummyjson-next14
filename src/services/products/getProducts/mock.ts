@@ -1,7 +1,7 @@
 /* eslint-disable sort-keys */
-import { ProductsResponse } from './types';
+import { ProductsData } from './types';
 
-export const mockProductsResponse: ProductsResponse = {
+export const mockProductsResponse: ProductsData = {
   products: [
     {
       id: 1,

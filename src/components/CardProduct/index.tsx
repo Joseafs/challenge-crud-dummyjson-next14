@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-import { ImageFit } from '~/components';
+import { Button, ImageFit } from '~/components';
 
 import { Body, Header, ImageContent, Root, Title } from './styles';
 import { Props } from './types';
 
-export const CardProduct: FC<Props> = ({ product, className }) => {
+export const CardProduct: FC<Props> = ({ product, className, onDelete, onEdit }) => {
   const { title, thumbnail, description, discountPercentage, price, stock } = product;
 
   return (
@@ -13,8 +13,8 @@ export const CardProduct: FC<Props> = ({ product, className }) => {
       <Header>
         <Title>{title}</Title>
         <div>
-          <div>edit</div>
-          <div>delete</div>
+          <Button onClick={onEdit}>edit</Button>
+          <Button onClick={onDelete}>delete</Button>
         </div>
       </Header>
       <ImageContent>

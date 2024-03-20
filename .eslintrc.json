@@ -8,9 +8,9 @@
     "jest": true
   },
   "rules": {
-    "no-unused-vars": "error",
     "no-console": "error",
     "no-useless-rename": "error",
+    "no-unused-vars": "off",
 
     "react/jsx-sort-props": "error",
     "typescript-sort-keys/interface": "error",

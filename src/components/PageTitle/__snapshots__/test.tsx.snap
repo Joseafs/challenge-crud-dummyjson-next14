@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageTitle Should match snapshot 1`] = `
+<div>
+  <h1
+    class="sc-b028d5f4-0 jPlqxL"
+  >
+    Genryusai Shigekuni Yamamoto
+  </h1>
+</div>
+`;

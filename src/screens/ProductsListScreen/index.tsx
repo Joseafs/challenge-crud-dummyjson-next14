@@ -1,34 +1,42 @@
 'use client';
 
-import { FC, useCallback, useState } from 'react';
+import Link from 'next/link';
+import { FC } from 'react';
 
-import { Button, Grid } from '~/components';
+import { Button, Grid, PageTitle } from '~/components';
 import { TemplateScreen } from '~/components/TemplateScreen';
 
-import { ProductsCards } from './components/ProductsTableData';
+import { ProductsListCards } from './components/ProductsListCards';
+import { ProductsListProvider } from './context/useProducts';
 
-export const ProductsListScreen: FC = () => {
-  const [count, setCount] = useState(2);
-
-  const handleClick = useCallback(() => {
-    setCount(count + 5);
-  }, [count]);
-
+const ProductsListScreenWithProvider: FC = () => {
   return (
     <TemplateScreen>
-      <h1>Header Lorem Ipsum </h1>
-      <br />
-      <Grid backgroundColor="primary" margin={[1]} padding={[1]}>
-        Search(title, brand) --- Select category
+      <Grid displayContent="space-between" displayType="inline-flex" padding={[2, 1]}>
+        <PageTitle color="primary">Produtos </PageTitle>
+        <Link href="/add" passHref>
+          <Button color="primary">Adicionar</Button>
+        </Link>
       </Grid>
       <br />
-      <Button color="primary" onClick={handleClick}>
-        {count}
-      </Button>
-      <br />
-      <ProductsCards count={count} />
-      <br />
-      <h2>Footer Lorem Ipsum </h2>
+      <Grid
+        backgroundColor="success"
+        displayContent="space-between"
+        displayType="inline-flex"
+        margin={[1]}
+        padding={[2, 1]}
+      >
+        <div>Search(title, brand)</div>
+        <div>Select category</div>
+      </Grid>
+
+      <ProductsListCards />
     </TemplateScreen>
   );
 };
+
+export const ProductsListScreen: FC = () => (
+  <ProductsListProvider>
+    <ProductsListScreenWithProvider />
+  </ProductsListProvider>
+);

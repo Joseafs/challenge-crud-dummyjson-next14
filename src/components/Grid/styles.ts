@@ -1,12 +1,19 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { useThemeColor, useThemeSpace } from '~/theme/utils';
 
 import { PropsGrid } from './types';
 
 export const Root = styled.div<PropsGrid>`
+  ${({ displayType }) => displayType && `display: ${displayType};`};
+  ${({ displayType }) => displayType === 'flex' && `flex: 1;`};
+  ${({ displayContent }) => displayContent && `justify-content: ${displayContent};`};
+
   ${({ margin }) => useThemeSpace(margin, 'margin')};
   ${({ padding }) => useThemeSpace(padding, 'padding')};
+
+  ${({ align }) => align && `text-align: ${align};`};
+  ${({ overflow }) => overflow && `overflow: ${overflow};`};
   ${({ backgroundColor }) => backgroundColor && `background-color: ${useThemeColor(backgroundColor, 'main')}`};
 
   ${({ zIndex }) =>
@@ -14,12 +21,4 @@ export const Root = styled.div<PropsGrid>`
     `
     position: relative;
     z-index: ${zIndex};`};
-  ${({ overflow }) => overflow && `overflow: ${overflow};`};
-  ${({ align }) => align && `text-align: ${align};`};
-  ${({ flex }) =>
-    flex &&
-    css`
-      display: flex;
-      flex: 1;
-    `};
 `;

@@ -1,9 +1,9 @@
 import { ButtonHTMLAttributes, MouseEventHandler, PropsWithChildren } from 'react';
 
-import { PropsThemeColors } from '~/theme/config/types';
+import { PropsThemePaletteKeys } from '~/theme/config/types';
 
 export type PropsButtonColor = {
-  color?: PropsThemeColors;
+  color?: PropsThemePaletteKeys;
 };
 
 export interface Props extends PropsWithChildren, PropsButtonColor {

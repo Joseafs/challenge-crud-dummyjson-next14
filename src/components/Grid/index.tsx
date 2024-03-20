@@ -11,15 +11,17 @@ const OgGrid: FC<Props> = ({
   zIndex,
   backgroundColor,
   overflow,
-  flex,
+  displayType,
   className,
+  displayContent,
 }) => {
   return (
     <Root
       align={align}
       backgroundColor={backgroundColor}
       className={className}
-      flex={flex}
+      displayContent={displayContent}
+      displayType={displayType}
       margin={margin}
       overflow={overflow}
       padding={padding}
