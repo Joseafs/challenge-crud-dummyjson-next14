@@ -9,7 +9,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  title: 'Example/PageTitle',
+  title: 'Components/PageTitle',
 } satisfies Meta<typeof PageTitle>;
 
 export default meta;

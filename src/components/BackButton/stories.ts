@@ -8,7 +8,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  title: 'Example/BackButton',
+  title: 'Components/BackButton',
 } satisfies Meta<typeof BackButton>;
 
 export default meta;

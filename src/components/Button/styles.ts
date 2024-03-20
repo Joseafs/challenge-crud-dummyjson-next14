@@ -1,16 +1,17 @@
 import styled, { css } from 'styled-components';
 
-import { useThemeColor } from '~/theme/utils';
+import { useThemeColor, useThemeSpace } from '~/theme/utils';
 
 import { PropsButtonColor } from './types';
 
 export const Root = styled.button<PropsButtonColor>`
   cursor: pointer;
   ${({ theme, color, disabled }) => css`
+    ${useThemeSpace([1, 2], 'padding')};
+
     ${theme.animation.transition[0]};
     background-color: ${useThemeColor(color, 'main')};
     color: ${theme.palette.common.white};
-    padding: ${theme.space * 2}px;
     border-radius: ${theme.shape.radius * 2}px;
     border: solid 1px ${theme.palette.grey[400]};
 

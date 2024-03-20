@@ -13,6 +13,7 @@ export type PropsThemeColorTypesKeys = keyof PropsThemeColorTypes;
 
 interface PropsFontSizes {
   small: string;
+  normal: string;
   medium: string;
   large: string;
   extraLarge: string;

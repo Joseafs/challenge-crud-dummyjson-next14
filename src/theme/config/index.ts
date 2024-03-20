@@ -101,6 +101,7 @@ export const theme: PropsTheme = {
   fontSizes: {
     inherit: 'inherit',
     small: '1.2rem',
+    normal: '1.4rem',
     medium: '1.6rem',
     large: '2.4rem',
     extraLarge: '3.2rem',
@@ -110,6 +111,7 @@ export const theme: PropsTheme = {
   fontLineHeights: {
     inherit: 'inherit',
     small: '1.5rem',
+    normal: '1.9rem',
     medium: '2.1rem',
     large: '2.9rem',
     extraLarge: '3.9rem',

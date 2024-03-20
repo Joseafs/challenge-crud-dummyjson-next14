@@ -1,24 +1,25 @@
+import { faker } from '@faker-js/faker';
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '.';
+import { InputText } from '.';
 
 const meta = {
-  args: { onClick: action('button clicked') },
-  component: Button,
+  args: { onChange: action('button clicked') },
+  component: InputText,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  title: 'Components/ButtonText',
-} satisfies Meta<typeof Button>;
+  title: 'Components/InputText',
+} satisfies Meta<typeof InputText>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: 'Button',
-    color: 'primary',
+    name: 'input-faker',
+    value: faker.word.words(3).toString(),
   },
 };
