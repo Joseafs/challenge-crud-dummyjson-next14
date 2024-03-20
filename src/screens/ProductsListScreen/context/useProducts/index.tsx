@@ -2,7 +2,7 @@ import { useRouter } from 'next/navigation';
 import { createContext, FC, PropsWithChildren, useCallback, useContext, useState } from 'react';
 
 import { deleteProduct, getProducts } from '~/services/products';
-import { ProductsData } from '~/services/products/getProducts/types';
+import { FetchProductsParams, ProductsData } from '~/services/products/getProducts/types';
 
 import { ProductsContext } from './types';
 
@@ -22,11 +22,11 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const [loading, setLoading] = useState(false);
 
-  const getProductsList = useCallback(async () => {
+  const getProductsList = useCallback(async (params?: FetchProductsParams) => {
     setLoading(true);
 
     try {
-      const data = await getProducts({ query: { limit: 5 } });
+      const data = await getProducts(params);
       setProductsData(data);
     } catch (e) {
       // TODO: will be nice have a toast or context to send errors;

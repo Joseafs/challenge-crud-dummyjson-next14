@@ -5,7 +5,6 @@ import { DeletedProductAttibutes } from '~/services/products/deleteProduct/types
 
 export interface FetchProductsQueryParams {
   limit?: number;
-  search?: string;
   select?: string;
   skip?: number;
 }
@@ -13,6 +12,7 @@ export interface FetchProductsQueryParams {
 export interface FetchProductsParams {
   id?: number;
   query?: Partial<FetchProductsQueryParams>;
+  search?: string;
 }
 
 export type SearchProcutsParams = 'title' | 'brand';

@@ -6,5 +6,5 @@ export const encodeParamsToString = (params?: Record<string, string | number>) =
   const paramsArray = Object.entries(params).map(
     ([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`,
   );
-  return `?${paramsArray.join('&')}`;
+  return paramsArray.join('&');
 };

@@ -9,5 +9,9 @@ export const getProducts = (params?: FetchProductsParams) => {
 
   const queryParams = encodeParamsToString(params?.query);
 
-  return apiGet<ProductsData>(`${apiRouteExample}${id}${queryParams}`);
+  const search = params?.search ? `/search?q=${params?.search}` : '';
+
+  const treatParams = search ? `${search}${queryParams ? `&${queryParams}` : ''}` : `${id}?${queryParams}`;
+
+  return apiGet<ProductsData>(`${apiRouteExample}${treatParams}`);
 };
