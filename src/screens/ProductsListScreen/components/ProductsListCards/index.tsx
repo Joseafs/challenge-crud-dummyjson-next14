@@ -7,12 +7,7 @@ import { useProductsList } from '~/screens/ProductsListScreen/context/useProduct
 import { Root } from './styles';
 
 export const ProductsListCards: FC = () => {
-  const {
-    getProductsList,
-    productsData: { products },
-    onDelete,
-    onEdit,
-  } = useProductsList();
+  const { getProductsList, productsList, loading, onDelete, onEdit } = useProductsList();
 
   useDidMount(() => {
     getProductsList();
@@ -20,7 +15,9 @@ export const ProductsListCards: FC = () => {
 
   return (
     <Root>
-      {products?.map((product, index) => {
+      {/* TODO: Loading component */}
+      {loading && <div>carregando</div>}
+      {productsList?.map((product, index) => {
         if (product.isDeleted) {
           return;
         }

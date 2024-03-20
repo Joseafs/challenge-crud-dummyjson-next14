@@ -1,4 +1,4 @@
-import { FetchProductsParams, ProductsData } from '~/services/products/getProducts/types';
+import { FetchProductsParams, Product, ProductsData } from '~/services/products/getProducts/types';
 
 export type OnAction = (id: number) => void;
 
@@ -8,4 +8,6 @@ export interface ProductsContext {
   onDelete: OnAction;
   onEdit: OnAction;
   productsData: ProductsData;
+  productsList: Product[];
+  searchActualProductsList: (searchText: string, orderBy?: string) => void;
 }

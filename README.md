@@ -2,7 +2,7 @@ Esse é um projeto boilerplate criado com o objeto de acelerar novos projetos, d
 
 ---
 
-## Nesse boilerplate virá como base:
+## Nesse Projeto foi utilizado como base:
 
 - [Next.js (14.1.3)](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -14,6 +14,7 @@ Esse é um projeto boilerplate criado com o objeto de acelerar novos projetos, d
 - [Axios Mock Adapter](https://www.npmjs.com/package/axios-mock-adapter)
 - [Faker](https://fakerjs.dev/)
 - [Storybook](https://storybook.js.org/)
+- [Formik](https://formik.org/)
 
 ---
 
@@ -43,49 +44,9 @@ Esse é um projeto boilerplate criado com o objeto de acelerar novos projetos, d
 
 ---
 
-## Estrutura de pastas e recursos base:
-
-```
-└── 📁src
-    └── 📁app
-        └── 📁example
-
-    └── 📁components
-        └── 📁Button
-        └── 📁ImageFit
-
-    └── 📁screens
-        └── 📁Home
-        └── 📁NotFound
-
-    └── 📁services
-        └── 📁api
-            └── 📁error
-            └── 📁methods
-                └── 📁apiDelete
-                └── 📁apiGet
-                └── 📁apiPost
-
-        └── 📁examples
-            └── 📁fetchExamples
-
-    └── 📁theme
-        └── 📁config
-        └── 📁provider
-        └── 📁utils
-            └── 📁getMediaQuery
-            └── 📁getThemeColor
-            └── 📁withThemeProvider
-
-    └── 📁utils
-        └── 📁mocks
-```
-
----
-
 ## Pronto para Vercel
 
-- [Master](https://boilerplate-next-styled-2024.vercel.app/)
+- [Master](https://challenge-crud-dummyjson-next14.vercel.app/)
 
 ## Desenvolvedor
 

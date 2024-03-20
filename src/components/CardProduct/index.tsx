@@ -6,7 +6,7 @@ import { Body, Header, ImageContent, Root, Title } from './styles';
 import { Props } from './types';
 
 export const CardProduct: FC<Props> = ({ product, className, onDelete, onEdit }) => {
-  const { title, thumbnail, description, discountPercentage, price, stock } = product;
+  const { title, thumbnail, description, discountPercentage, price, stock, brand } = product;
 
   return (
     <Root className={className}>
@@ -24,6 +24,8 @@ export const CardProduct: FC<Props> = ({ product, className, onDelete, onEdit })
         {/* Marca: {brand}
         <br />
         Categoria: {category} */}
+        Marca: {brand}
+        <br />
         Desconto: {discountPercentage}%
         <br />
         preço: {price}

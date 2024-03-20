@@ -2,9 +2,10 @@ import { useRouter } from 'next/navigation';
 import { createContext, FC, PropsWithChildren, useCallback, useContext, useState } from 'react';
 
 import { deleteProduct, getProducts } from '~/services/products';
-import { FetchProductsParams, ProductsData } from '~/services/products/getProducts/types';
+import { FetchProductsParams, Product, ProductsData } from '~/services/products/getProducts/types';
 
 import { ProductsContext } from './types';
+import { filterProductsBySearch } from './utils/filterProductsBySearch';
 
 const initialProductsDataState = {
   limit: 0,
@@ -19,6 +20,7 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
 
   const [productsData, setProductsData] = useState<ProductsData>(initialProductsDataState);
+  const [productsList, setProductsList] = useState<Product[]>([]);
 
   const [loading, setLoading] = useState(false);
 
@@ -28,12 +30,28 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
     try {
       const data = await getProducts(params);
       setProductsData(data);
+      setProductsList(data.products);
     } catch (e) {
       // TODO: will be nice have a toast or context to send errors;
     } finally {
       setLoading(false);
     }
   }, []);
+
+  const searchActualProductsList = useCallback(
+    (searchText: string, orderBy?: string) => {
+      const { products } = productsData;
+
+      if (!searchText) {
+        return setProductsList(products);
+      }
+
+      const filteredList = filterProductsBySearch(products, searchText);
+
+      setProductsList(filteredList);
+    },
+    [productsData],
+  );
 
   const onDelete = useCallback(
     async (id: number) => {
@@ -75,6 +93,8 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
         onDelete,
         onEdit,
         productsData,
+        productsList,
+        searchActualProductsList,
       }}
     >
       {children}
