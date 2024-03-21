@@ -1,8 +1,9 @@
 import { FC } from 'react';
+import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
 
-import { Button, ImageFit } from '~/components';
+import { ButtonIcon, ImageFit } from '~/components';
 
-import { Body, Header, ImageContent, Root, Title } from './styles';
+import { ActionsContent, Body, Header, ImageContent, Root, Title } from './styles';
 import { Props } from './types';
 
 export const CardProduct: FC<Props> = ({ product, className, onDelete, onEdit }) => {
@@ -12,10 +13,11 @@ export const CardProduct: FC<Props> = ({ product, className, onDelete, onEdit })
     <Root className={className}>
       <Header>
         <Title>{title}</Title>
-        <div>
-          <Button onClick={onEdit}>edit</Button>
-          <Button onClick={onDelete}>delete</Button>
-        </div>
+        <ActionsContent>
+          <ButtonIcon color="secondary" icon={AiFillEdit} onClick={onEdit} />
+
+          <ButtonIcon color="secondary" icon={AiFillDelete} onClick={onDelete} />
+        </ActionsContent>
       </Header>
       <ImageContent>
         <ImageFit description={description} fill fit="cover" src={thumbnail} />

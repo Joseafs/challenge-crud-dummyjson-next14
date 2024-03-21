@@ -1,8 +1,10 @@
+import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { BackButton } from '.';
 
 const meta = {
+  args: { onClick: action('button clicked') },
   component: BackButton,
   parameters: {
     layout: 'centered',

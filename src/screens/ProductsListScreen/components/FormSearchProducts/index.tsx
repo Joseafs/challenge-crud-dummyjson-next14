@@ -10,23 +10,12 @@ export const FormSearchProducts: FC = () => {
 
   return (
     <Fragment>
-      <Grid
-        backgroundColor="success"
-        displayContent="space-between"
-        displayType="inline-flex"
-        margin={[1]}
-        padding={[2, 1]}
-      >
-        <div>Search (title, brand)</div>
-        <div>Sort (title, brand)</div>
-        <div>Select category</div>
-      </Grid>
-
-      <Grid backgroundColor="info" displayType="inline-flex" margin={[1]} padding={[2, 1]}>
+      <Grid displayType="inline-flex" margin={[1]} padding={[2, 1]}>
         <InputText
-          label="Pesquisar por Nome ou Marca"
+          label="Pesquisar"
           name="search"
           onChange={handleChange}
+          placeholder="Insira o nome ou a marca do produto"
           type="text"
           value={values.search}
         />

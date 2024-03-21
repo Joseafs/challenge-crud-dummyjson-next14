@@ -6,7 +6,6 @@ export const Root = styled.div`
   max-width: 400px;
   margin: auto;
   overflow: hidden;
-  background-color: bisque;
   cursor: pointer;
 
   ${({ theme }) => css`
@@ -28,9 +27,23 @@ export const ImageContent = styled.div`
   width: 100%;
 `;
 
+export const ActionsContent = styled.div`
+  display: flex;
+
+  ${({ theme }) => css`
+    column-gap: ${theme.space}px;
+    ${useThemeSpace([1], 'padding')};
+  `}
+`;
+
 export const Header = styled.div`
   justify-content: space-between;
   display: flex;
+  align-items: center;
+
+  ${({ theme }) => css`
+    background-color: ${theme.palette.grey[200]};
+  `};
 `;
 
 export const Title = styled.h5`
@@ -40,7 +53,6 @@ export const Title = styled.h5`
     ${useThemeSpace([1], 'padding')};
     ${useThemeFontStyle('medium')};
 
-    background-color: ${theme.palette.grey[200]};
     color: ${theme.palette.secondary.main};
     font-weight: ${theme.fontWeights.bold};
   `}

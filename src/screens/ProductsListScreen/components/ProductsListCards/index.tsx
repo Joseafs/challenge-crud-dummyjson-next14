@@ -6,11 +6,13 @@ import { useProductsList } from '~/screens/ProductsListScreen/context/useProduct
 
 import { Root } from './styles';
 
+const initialLimit = 150;
+
 export const ProductsListCards: FC = () => {
   const { getProductsList, productsList, loading, onDelete, onEdit } = useProductsList();
 
   useDidMount(() => {
-    getProductsList();
+    getProductsList({ query: { limit: initialLimit } });
   });
 
   return (
@@ -23,7 +25,7 @@ export const ProductsListCards: FC = () => {
         }
 
         return (
-          <Grid backgroundColor="success" key={`card-${product.id}-${index}`} margin={[1]} padding={[1]}>
+          <Grid key={`card-${product.id}-${index}`}>
             <CardProduct onDelete={() => onDelete(product.id)} onEdit={() => onEdit(product.id)} product={product} />
           </Grid>
         );

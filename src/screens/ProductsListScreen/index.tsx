@@ -15,12 +15,11 @@ const ProductsListScreenWithProvider: FC = () => {
   return (
     <TemplateScreen>
       <Grid displayContent="space-between" displayType="inline-flex" padding={[2, 1]}>
-        <PageTitle color="primary">Produtos </PageTitle>
-        <Link href="/add" passHref>
+        <PageTitle color="primary">Produtos</PageTitle>
+        <Link href="/add">
           <Button color="primary">Adicionar</Button>
         </Link>
       </Grid>
-      <br />
 
       <FormSearchProductsProvider>
         <FormSearchProducts />

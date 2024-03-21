@@ -6,7 +6,7 @@ import { useProductsList } from '~/screens/ProductsListScreen/context/useProduct
 import { RootForm } from './styles';
 import { Props, PropsFormSearch } from './types';
 
-const initialValues: PropsFormSearch = { search: 'Title or brand' };
+const initialValues: PropsFormSearch = { search: '' };
 
 export const FormSearchProductsProvider: FC<Props> = ({ children }) => {
   const { searchActualProductsList } = useProductsList();

@@ -1,30 +1,31 @@
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/react';
+import { FaAddressBook } from 'react-icons/fa';
 
-import { Button } from '.';
+import { ButtonIcon } from '.';
 
 const meta = {
   args: { onClick: action('button clicked') },
-  component: Button,
+  component: ButtonIcon,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  title: 'Components/Button',
-} satisfies Meta<typeof Button>;
+  title: 'Components/ButtonIcon',
+} satisfies Meta<typeof ButtonIcon>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: 'Button',
     color: 'primary',
+    icon: FaAddressBook,
   },
 };
 export const Secondary: Story = {
   args: {
-    children: 'Button',
     color: 'secondary',
+    icon: FaAddressBook,
   },
 };
