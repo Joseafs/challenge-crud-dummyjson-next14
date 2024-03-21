@@ -39,6 +39,16 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
     return filteredList;
   }, [productsData, productsSearch]);
 
+  const totalEnabledProducts = useMemo(() => {
+    return productsList.reduce((contador, objeto) => {
+      if (objeto.isDeleted !== true) {
+        return contador + 1;
+      } else {
+        return contador;
+      }
+    }, 0);
+  }, [productsList]);
+
   const getProductsList = useCallback(async (params?: FetchProductsParams) => {
     setLoading(true);
 
@@ -57,9 +67,8 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
       try {
         const data = await deleteProduct(2);
 
-        const { products, total } = productsData;
+        const { products } = productsData;
 
-        const newProductsTotal = total > 0 ? total - 1 : 0;
         const newProcutsList = products.map((product) => {
           if (product.id === id) {
             return data;
@@ -67,7 +76,7 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
           return product;
         });
 
-        const newProductsData: ProductsData = { ...productsData, products: newProcutsList, total: newProductsTotal };
+        const newProductsData: ProductsData = { ...productsData, products: newProcutsList };
 
         setProductsData(newProductsData);
       } catch (error) {
@@ -95,6 +104,7 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
         productsList,
         productsSearch,
         setProductsSearch,
+        totalEnabledProducts,
       }}
     >
       {children}

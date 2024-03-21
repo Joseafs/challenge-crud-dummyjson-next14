@@ -9,6 +9,8 @@ import { TemplateScreen } from '~/components/TemplateScreen';
 import { FormSearchProducts } from './components/FormSearchProducts';
 import { FormSearchProductsProvider } from './components/FormSearchProducts/components/FormSearchProductsProvider';
 import { ProductsListCards } from './components/ProductsListCards';
+import { ProductsPagination } from './components/ProductsPagination';
+import { PaginationProvider } from './context/usePagination';
 import { ProductsListProvider } from './context/useProducts';
 
 const ProductsListScreenWithProvider: FC = () => {
@@ -27,7 +29,11 @@ const ProductsListScreenWithProvider: FC = () => {
         <FormSearchProducts />
       </FormSearchProductsProvider>
 
-      <ProductsListCards />
+      <PaginationProvider>
+        <ProductsPagination />
+        <ProductsListCards />
+        <ProductsPagination />
+      </PaginationProvider>
     </TemplateScreen>
   );
 };

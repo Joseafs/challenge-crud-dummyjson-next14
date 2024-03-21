@@ -14,4 +14,5 @@ export interface ProductsContext {
   productsList: Product[];
   productsSearch: string;
   setProductsSearch: Dispatch<SetStateAction<string>>;
+  totalEnabledProducts: number;
 }
