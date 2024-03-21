@@ -38,9 +38,11 @@ export const theme: PropsTheme = {
     },
     primary: {
       main: 'rgb(205, 35, 35)',
+      text: 'rgb(255, 255, 255)',
     },
     secondary: {
       main: 'rgb(15, 17, 21)',
+      text: 'rgb(255, 255, 255)',
     },
 
     error: {
