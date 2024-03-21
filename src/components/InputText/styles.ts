@@ -23,10 +23,8 @@ export const Span = styled.div`
 
   &:before {
     content: '';
-    z-index: -10;
     top: 9px;
     height: 4px;
-    background-color: #fff;
     position: absolute;
   }
 
@@ -38,6 +36,8 @@ export const Span = styled.div`
     &:before {
       left: -${theme.space}px;
       width: calc(100% + ${theme.space * 2}px);
+      background-color: ${theme.palette.background.default};
+      z-index: ${theme.zindex.background};
     }
   `}
 `;

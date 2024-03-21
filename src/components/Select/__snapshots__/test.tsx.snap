@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Should match snapshot 1`] = `
+<div>
+  <div
+    class="sc-217a1f4b-0 ifUWuy"
+  >
+    <label
+      class="sc-217a1f4b-3 bciKkD"
+    >
+      <div
+        class="sc-217a1f4b-4 eTzaEb"
+      >
+        select-field
+      </div>
+    </label>
+    <select
+      class="sc-217a1f4b-1 dRfoem"
+      data-testid="select-faker"
+    >
+      <option
+        class="sc-217a1f4b-2"
+        value="itachi-uchiha"
+      >
+        Itachi Uchiha
+      </option>
+      <option
+        class="sc-217a1f4b-2"
+        value="tanjiro-kamado"
+      >
+        Tanjiro Kamado
+      </option>
+      <option
+        class="sc-217a1f4b-2"
+        value="gon-freecss"
+      >
+        Gon Freecss
+      </option>
+    </select>
+  </div>
+</div>
+`;

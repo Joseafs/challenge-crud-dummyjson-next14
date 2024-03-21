@@ -8,6 +8,7 @@ export const Root = styled.div<PropsGrid>`
   ${({ displayType }) => displayType && `display: ${displayType};`};
   ${({ displayType }) => displayType === 'flex' && `flex: 1;`};
   ${({ displayContent }) => displayContent && `justify-content: ${displayContent};`};
+  ${({ gridGap }) => gridGap && `grid-gap: ${gridGap};`};
 
   ${({ margin }) => useThemeSpace(margin, 'margin')};
   ${({ padding }) => useThemeSpace(padding, 'padding')};

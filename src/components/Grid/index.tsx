@@ -12,6 +12,7 @@ const OgGrid: FC<Props> = ({
   backgroundColor,
   overflow,
   displayType,
+  gridGap,
   className,
   displayContent,
 }) => {
@@ -22,6 +23,7 @@ const OgGrid: FC<Props> = ({
       className={className}
       displayContent={displayContent}
       displayType={displayType}
+      gridGap={gridGap}
       margin={margin}
       overflow={overflow}
       padding={padding}

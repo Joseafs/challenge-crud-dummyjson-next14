@@ -92,6 +92,7 @@ export type PropsTheme = {
     tooltip: number;
     snackbar: number;
     menu: number;
+    background: number;
   };
 
   fontSizes: PropsFontSizes;

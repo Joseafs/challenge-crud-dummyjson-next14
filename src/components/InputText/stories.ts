@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { InputText } from '.';
 
 const meta = {
-  args: { onChange: action('button clicked') },
+  args: { onChange: (e) => action('OnChange')(e) },
   component: InputText,
   parameters: {
     layout: 'centered',

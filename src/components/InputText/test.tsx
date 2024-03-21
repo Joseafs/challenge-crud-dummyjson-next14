@@ -6,7 +6,7 @@ import { snapshotYamamotoName } from '~/utils/mocks/snapshotMockValues';
 import { InputText } from '.';
 
 describe('InputText', () => {
-  it('Should check input change', () => {
+  test('Should check input change', () => {
     const mockFn = jest.fn();
     const { getByTestId } = render(
       withThemeProvider(<InputText label="Input test" name="test" onChange={mockFn}></InputText>),

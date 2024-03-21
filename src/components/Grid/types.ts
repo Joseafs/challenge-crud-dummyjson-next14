@@ -7,6 +7,7 @@ export type PropsGrid = {
   backgroundColor?: PropsThemePaletteKeys;
   displayContent?: CSSProperties['justifyContent'];
   displayType?: CSSProperties['display'];
+  gridGap?: string;
   margin?: number[];
   overflow?: 'visible' | 'hidden' | 'scroll' | 'auto';
   padding?: number[];

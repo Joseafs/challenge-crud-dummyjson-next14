@@ -4,15 +4,9 @@ import { createContext, FC, PropsWithChildren, useCallback, useContext, useMemo,
 import { deleteProduct, getProducts } from '~/services/products';
 import { FetchProductsParams, Product, ProductsData } from '~/services/products/getProducts/types';
 
-import { ProductsContext } from './types';
+import { ProductsContext, ProductsSortOptionsKeys } from './types';
 import { filterProductsBySearch } from './utils/filterProductsBySearch';
-
-const initialProductsDataState = {
-  limit: 0,
-  products: [],
-  skip: 0,
-  total: 0,
-};
+import { initialProductsDataState, sortOptionsList } from './values';
 
 export const ProductsListContext = createContext({} as ProductsContext);
 
@@ -20,24 +14,23 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
 
   const [productsData, setProductsData] = useState<ProductsData>(initialProductsDataState);
-
   const [productsSearch, setProductsSearch] = useState('');
-  // TODO: make productsOrderBy works with select
-  // const [productsOrderBy, setProductsOrderBy] = useState('');
-
   const [loading, setLoading] = useState(false);
+  const [sortOption, setSortOption] = useState<ProductsSortOptionsKeys>(sortOptionsList[0].value);
 
   const productsList: Product[] = useMemo(() => {
     const { products } = productsData;
 
-    if (!productsSearch) {
-      return products;
-    }
-
     const filteredList = filterProductsBySearch(products, productsSearch);
 
+    if (sortOption === 'title') {
+      filteredList.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortOption === 'brand') {
+      filteredList.sort((a, b) => a.brand.localeCompare(b.brand));
+    }
+
     return filteredList;
-  }, [productsData, productsSearch]);
+  }, [productsData, productsSearch, sortOption]);
 
   const totalEnabledProducts = useMemo(() => {
     return productsList.reduce((contador, objeto) => {
@@ -104,6 +97,8 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
         productsList,
         productsSearch,
         setProductsSearch,
+        setSortOption,
+        sortOption,
         totalEnabledProducts,
       }}
     >

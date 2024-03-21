@@ -98,6 +98,7 @@ export const theme: PropsTheme = {
     screen: 1000,
     snackbar: 1400,
     tooltip: 1500,
+    background: -10,
   },
 
   fontSizes: {

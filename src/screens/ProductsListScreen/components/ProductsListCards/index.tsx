@@ -26,10 +26,7 @@ export const ProductsListCards: FC = () => {
   const startIndex = useMemo(() => (currentPage - 1) * itemsPerPage, [currentPage, itemsPerPage]);
   const endIndex = useMemo(() => startIndex + itemsPerPage, [itemsPerPage, startIndex]);
 
-  const paginatedProductsList = useMemo(
-    () => productsList?.slice(startIndex, endIndex),
-    [endIndex, productsList, startIndex],
-  );
+  const paginatedProductsList = productsList?.slice(startIndex, endIndex);
 
   useEffect(() => {
     if (totalEnabledProducts > startIndex) {

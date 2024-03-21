@@ -11,3 +11,18 @@ export const snapshotZoroDescription =
 
 export const snapshotStringValue = '12.345,67';
 export const snapshotFloatNumber = 1234.5678;
+
+export const snapshotSelectValues = [
+  {
+    label: 'Itachi Uchiha',
+    value: 'itachi-uchiha',
+  },
+  {
+    label: 'Tanjiro Kamado',
+    value: 'tanjiro-kamado',
+  },
+  {
+    label: 'Gon Freecss',
+    value: 'gon-freecss',
+  },
+];

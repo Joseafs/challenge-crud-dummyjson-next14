@@ -1,6 +1,6 @@
-import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
+import { ChangeEvent, InputHTMLAttributes } from 'react';
 
-import { Input, Label, Root, Span } from './styled';
+import { Input, Label, Root, Span } from './styles';
 
 interface Props {
   label?: string;
@@ -14,7 +14,7 @@ interface Props {
   value?: string | number;
 }
 
-const OgInputText = ({ name, type, label, value, min, max, required, placeholder, onChange }: Props) => {
+export const InputText = ({ name, type, label, value, min, max, required, placeholder, onChange }: Props) => {
   return (
     <Root>
       {label && (
@@ -37,5 +37,3 @@ const OgInputText = ({ name, type, label, value, min, max, required, placeholder
     </Root>
   );
 };
-
-export const InputText = memo(OgInputText);
