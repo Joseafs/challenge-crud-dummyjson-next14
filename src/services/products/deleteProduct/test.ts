@@ -4,7 +4,7 @@ import MockAdapter from 'axios-mock-adapter';
 
 import { api } from '~/services/api';
 import { AxiosErrorResponse } from '~/services/api/error/types';
-import { apiRouteExample } from '~/services/products';
+import { apiRouteProducts } from '~/services/products';
 
 import { mockProductsResponse } from './mock';
 
@@ -13,7 +13,7 @@ import { deleteProduct } from '.';
 describe('deleteProduct', () => {
   test('should match data', async () => {
     const deletedId = faker.number.int(100);
-    const deleteRoute = `${apiRouteExample}/${deletedId}`;
+    const deleteRoute = `${apiRouteProducts}/${deletedId}`;
 
     const mock = new MockAdapter(api);
     mock.onDelete(deleteRoute).reply(HttpStatusCode.Ok, mockProductsResponse);
@@ -28,7 +28,7 @@ describe('deleteProduct', () => {
   test('should throw RequestError', async () => {
     const errorText = faker.lorem.paragraph();
     const deletedId = faker.number.int(100);
-    const deleteRoute = `${apiRouteExample}/${deletedId}`;
+    const deleteRoute = `${apiRouteProducts}/${deletedId}`;
 
     const mock = new MockAdapter(api);
     mock.onDelete(deleteRoute).reply(HttpStatusCode.BadRequest, { error: errorText });

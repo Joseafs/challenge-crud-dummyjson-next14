@@ -6,20 +6,20 @@ import { useProductEdit } from '~/screens/ProductEdit/context/useProduct';
 import { RootForm } from './styles';
 
 export const FormEditProductProvider: FC<PropsWithChildren> = ({ children }) => {
-  const { productData } = useProductEdit();
+  const { product, saveProductById } = useProductEdit();
 
   return (
     <Formik
-      initialValues={productData}
+      initialValues={product}
       onSubmit={async (values, { setSubmitting }) => {
-        // eslint-disable-next-line no-console
-        console.log('🚀 ~ FormEditProductProvider - onSubmit={ ~ values:', values);
-
         // NOTE: dummjson only have a postRoute for simulations, but this request doesn't change the API data;
-        // - On return /products/, the dada will not change;
+        // - On return /products/, the data will not change;
+
+        saveProductById(values);
 
         setSubmitting(false);
       }}
+      // TODO: add validates for fields
       // validate={(values) => {
       //   const errors = {} as PropsFormSearch;
       //   if (!values.search) {

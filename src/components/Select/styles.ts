@@ -21,11 +21,18 @@ export const CustomSelect = styled.select`
     padding: ${theme.space}px;
     border-radius: ${theme.shape.radius}px;
     border: solid 2px ${theme.palette.secondary.main};
-    color: ${theme.palette.secondary.main}; /* Defina a cor do texto */
+    color: ${theme.palette.secondary.main};
   `}
 `;
 
-export const Option = styled.option``;
+export const Option = styled.option`
+  text-transform: capitalize;
+
+  ${({ theme }) => css`
+    ${useThemeFontStyle('normal')}
+    font-weight: ${theme.fontWeights.semiBold};
+  `}
+`;
 
 export const Label = styled.label`
   z-index: 2;

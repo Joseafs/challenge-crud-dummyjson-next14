@@ -1,7 +1,7 @@
 'use client';
 
 import useDidMount from 'beautiful-react-hooks/useDidMount';
-import { FC, Fragment, useMemo } from 'react';
+import { FC, Fragment } from 'react';
 
 import { Grid, PageTitle } from '~/components';
 import { TemplateScreen } from '~/components/TemplateScreen';
@@ -15,13 +15,11 @@ interface Props {
 }
 
 const ProductEditWithProvider: FC<Props> = ({ id }) => {
-  const { getProductById, loading, productData } = useProductEdit();
+  const { getProductById, product, loading } = useProductEdit();
 
   useDidMount(() => {
     getProductById(id);
   });
-
-  const productCachedData = useMemo(() => productData, [productData]);
 
   return (
     <TemplateScreen>
@@ -30,11 +28,10 @@ const ProductEditWithProvider: FC<Props> = ({ id }) => {
       ) : (
         <Fragment>
           <Grid displayContent="space-between" displayType="inline-flex" padding={[2, 1]}>
-            <PageTitle color="primary">Produto {productCachedData.title}</PageTitle>
+            <PageTitle color="primary">Produto {product.title}</PageTitle>
           </Grid>
-
           <FormEditProductProvider>
-            <FormEditProduct id={id} />
+            <FormEditProduct />
           </FormEditProductProvider>
         </Fragment>
       )}

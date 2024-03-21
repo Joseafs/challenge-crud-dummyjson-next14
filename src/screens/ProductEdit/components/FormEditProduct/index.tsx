@@ -1,24 +1,44 @@
 import { useFormikContext } from 'formik';
-import { FC, Fragment } from 'react';
+import { FC, Fragment, useMemo } from 'react';
 
-import { Button, Grid, InputText } from '~/components';
+import { Button, Grid, InputText, Textarea } from '~/components';
+import { ImageGalery } from '~/components/ImageGalery';
+import { useProductEdit } from '~/screens/ProductEdit/context/useProduct';
 import { ProductData } from '~/services/products/getProduct/types';
+import { generateArray } from '~/utils/generateArray';
 
 import { GridTemplateInputs, SelectRoot } from './styles';
 
-export const sortOptionsList: any[] = [
-  { label: 'Título', value: 'title' },
-  { label: 'Marca', value: 'brand' },
-];
+interface Example {
+  label: string;
+  value: string;
+}
 
 const definitionOfItem = 'produto';
 
 export const FormEditProduct: FC = () => {
   const { isSubmitting, handleChange, values } = useFormikContext<ProductData>();
 
+  const { productsCategories, product } = useProductEdit();
+
+  const categoriesSelectOption = useMemo(
+    () =>
+      generateArray<Example>(productsCategories.length, (_, index) => ({
+        label: productsCategories[index],
+        value: productsCategories[index],
+      })),
+    [productsCategories],
+  );
+
   return (
     <Fragment>
-      <Grid displayType="grid" gridGap="20px" margin={[1]} padding={[2, 1]}>
+      <Grid displayType="grid" gridGap="20px" padding={[2]}>
+        <GridTemplateInputs displayType="inline-flex">
+          <ImageGalery
+            images={[...product.images, ...product.images, ...product.images]}
+            thumbnail={product.thumbnail}
+          />
+        </GridTemplateInputs>
         <GridTemplateInputs displayType="inline-flex" gridGap="10px">
           <InputText
             label="Título"
@@ -40,7 +60,7 @@ export const FormEditProduct: FC = () => {
             value={values.brand}
             width="flex"
           />
-          <SelectRoot label="Categorias" name="category" onChange={handleChange} options={sortOptionsList} />
+          <SelectRoot label="Categorias" name="category" onChange={handleChange} options={categoriesSelectOption} />
         </GridTemplateInputs>
         <GridTemplateInputs displayType="inline-flex" gridGap="10px">
           <InputText
@@ -62,6 +82,7 @@ export const FormEditProduct: FC = () => {
             width="flex"
           />
         </GridTemplateInputs>
+
         <GridTemplateInputs displayType="inline-flex" gridGap="10px">
           <InputText
             label="Avaliação"
@@ -82,9 +103,19 @@ export const FormEditProduct: FC = () => {
             width="flex"
           />
         </GridTemplateInputs>
+        <GridTemplateInputs displayType="inline-flex" gridGap="10px">
+          <Textarea
+            label="Descrição"
+            name="description"
+            onChange={handleChange}
+            placeholder={`Descrição do ${definitionOfItem}`}
+            value={values.description}
+            width="flex"
+          />
+        </GridTemplateInputs>
         <Grid align="center" displayContent="space-evenly" displayType="inline-flex">
           <Button color="secondary" disabled={isSubmitting} fullWidth type="submit">
-            Buscar
+            Salvar
           </Button>
         </Grid>
       </Grid>

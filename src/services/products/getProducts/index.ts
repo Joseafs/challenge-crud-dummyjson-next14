@@ -1,5 +1,5 @@
 import { apiGet } from '~/services/api/methods';
-import { apiRouteExample } from '~/services/products';
+import { apiRouteProducts } from '~/services/products';
 import { encodeParamsToString } from '~/utils/encodeParamsToString';
 
 import { FetchProductsParams, ProductsData } from './types';
@@ -15,5 +15,5 @@ export const getProducts = (params?: FetchProductsParams) => {
     path = `${queryParams ? `?${queryParams}` : ''}`;
   }
 
-  return apiGet<ProductsData>(`${apiRouteExample}${path}`);
+  return apiGet<ProductsData>(`${apiRouteProducts}${path}`);
 };

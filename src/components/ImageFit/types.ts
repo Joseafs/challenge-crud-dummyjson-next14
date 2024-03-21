@@ -6,7 +6,7 @@ export type PropsImageFit = {
 
 export interface Props extends PropsImageFit {
   className?: string;
-  description: string;
+  description?: string;
   fill?: boolean;
   height?: number;
   src: string;

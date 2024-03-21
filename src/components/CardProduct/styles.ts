@@ -27,7 +27,6 @@ export const ImageContent = styled.div`
   position: relative;
   min-height: 200px;
   width: 100%;
-  position: relative;
 `;
 
 export const ActionsContent = styled.div`

@@ -1,4 +1,6 @@
 export { deleteProduct } from './deleteProduct';
 export { getProducts } from './getProducts';
+export { getProductsCategories } from './getProductsCategories';
 
-export const apiRouteExample = '/products';
+export const apiRouteProducts = '/products';
+export const apiRouteProductsCategories = '/products/categories';

@@ -8,18 +8,19 @@ import { apiRouteProducts } from '~/services/products';
 
 import { mockProductResponse } from './mock';
 
-import { getProduct } from '.';
+import { saveProduct } from '.';
 
-describe('getProduct', () => {
+describe('saveProduct', () => {
   test('should match data when get by id', async () => {
     const mock = new MockAdapter(api);
     const id = faker.number.int(100);
+    const body = faker.word.words(5);
 
     const getRouteWithId = `${apiRouteProducts}/${id}`;
 
-    mock.onGet(getRouteWithId).reply(HttpStatusCode.Ok, mockProductResponse);
+    mock.onPut(getRouteWithId).reply(HttpStatusCode.Ok, mockProductResponse);
 
-    const data = await getProduct(id);
+    const data = await saveProduct(id, body);
 
     expect(data).toMatchObject(mockProductResponse);
 
@@ -29,13 +30,15 @@ describe('getProduct', () => {
   test('should throw RequestError', async () => {
     const errorText = faker.lorem.paragraph();
     const id = faker.number.int(100);
+    const body = faker.word.words(5);
+
     const getRouteWithId = `${apiRouteProducts}/${id}`;
 
     const mock = new MockAdapter(api);
-    mock.onGet(getRouteWithId).reply(HttpStatusCode.BadRequest, { error: errorText });
+    mock.onPut(getRouteWithId).reply(HttpStatusCode.BadRequest, { error: errorText });
 
     try {
-      await getProduct(id);
+      await saveProduct(id, body);
     } catch (e) {
       expect((e as AxiosErrorResponse).status).toStrictEqual(HttpStatusCode.BadRequest);
       expect((e as AxiosErrorResponse).data.error).toStrictEqual(errorText);

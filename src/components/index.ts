@@ -7,3 +7,4 @@ export { ImageFit } from './ImageFit';
 export { InputText } from './InputText';
 export { PageTitle } from './PageTitle';
 export { Select } from './Select';
+export { Textarea } from './Textarea';

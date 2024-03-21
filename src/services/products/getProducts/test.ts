@@ -4,7 +4,7 @@ import MockAdapter from 'axios-mock-adapter';
 
 import { api } from '~/services/api';
 import { AxiosErrorResponse } from '~/services/api/error/types';
-import { apiRouteExample } from '~/services/products';
+import { apiRouteProducts } from '~/services/products';
 import { encodeParamsToString } from '~/utils/encodeParamsToString';
 
 import { mockProductResponse, mockProductsResponse } from './mock';
@@ -15,7 +15,7 @@ import { getProducts } from '.';
 describe('getProducts', () => {
   test('should match data', async () => {
     const mock = new MockAdapter(api);
-    mock.onGet(apiRouteExample).reply(HttpStatusCode.Ok, mockProductsResponse);
+    mock.onGet(apiRouteProducts).reply(HttpStatusCode.Ok, mockProductsResponse);
 
     const data = await getProducts();
 
@@ -31,7 +31,7 @@ describe('getProducts', () => {
       skip: 58,
     };
 
-    const getRouteWithParams = `${apiRouteExample}?${encodeParamsToString(queryParams)}`;
+    const getRouteWithParams = `${apiRouteProducts}?${encodeParamsToString(queryParams)}`;
 
     mock.onGet(getRouteWithParams).reply(HttpStatusCode.Ok, mockProductResponse);
 
@@ -46,7 +46,7 @@ describe('getProducts', () => {
     const errorText = faker.lorem.paragraph();
 
     const mock = new MockAdapter(api);
-    mock.onGet(apiRouteExample).reply(HttpStatusCode.BadRequest, { error: errorText });
+    mock.onGet(apiRouteProducts).reply(HttpStatusCode.BadRequest, { error: errorText });
 
     try {
       await getProducts();

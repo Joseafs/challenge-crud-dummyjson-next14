@@ -29,6 +29,7 @@ export const FormSearchProducts: FC = () => {
           placeholder="Insira o nome ou a marca do produto"
           type="text"
           value={values.search}
+          width="flex"
         />
         <SelectRoot
           label="Ordenação"

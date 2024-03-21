@@ -5,7 +5,7 @@ import { Props } from './types';
 
 export const ImageFit: FC<Props> = ({ description, height, src, width, className, fit, fill }) => (
   <Root
-    alt={description}
+    alt={description || ''}
     className={className}
     fill={fill}
     fit={fit}

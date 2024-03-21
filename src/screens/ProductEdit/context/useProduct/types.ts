@@ -1,17 +1,12 @@
-import { SelectOptions } from '~/components/Select/types';
 import { ProductData } from '~/services/products/getProduct/types';
+import { ProductsCategoriesData } from '~/services/products/getProductsCategories/types';
 
-export type OnActionId = (id: number) => void;
-export type OnAction = () => void;
-
-export type ProductsSortOptionsKeys = 'title' | 'brand';
-
-export interface ProductsSortOptionsList extends SelectOptions<ProductsSortOptionsKeys> {}
-
-export interface ProductsContext {
+export interface ProductContext {
   getProductById: (id: number) => Promise<void>;
   loading: boolean;
-  productData: ProductData;
+  product: ProductData;
+  productsCategories: ProductsCategoriesData;
+  saveProductById: (values: ProductData) => Promise<void>;
 }
 
 // export interface ProductDataNew extends Omit<ProductData, 'id'> {
