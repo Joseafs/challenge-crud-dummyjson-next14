@@ -9,7 +9,7 @@ import { Props, PropsFormSearch } from './types';
 const initialValues: PropsFormSearch = { search: '' };
 
 export const FormSearchProductsProvider: FC<Props> = ({ children }) => {
-  const { searchActualProductsList } = useProductsList();
+  const { setProductsSearch } = useProductsList();
 
   return (
     <Formik
@@ -19,8 +19,7 @@ export const FormSearchProductsProvider: FC<Props> = ({ children }) => {
         // - the challenge requirements need search for title and brand;
         // - Dummyjson only works with title search;
 
-        // await getProductsList({ search: values.search });
-        searchActualProductsList(values.search);
+        setProductsSearch(values.search);
 
         setSubmitting(false);
       }}

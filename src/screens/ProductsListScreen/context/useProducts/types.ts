@@ -1,6 +1,9 @@
+import { Dispatch, SetStateAction } from 'react';
+
 import { FetchProductsParams, Product, ProductsData } from '~/services/products/getProducts/types';
 
 export type OnAction = (id: number) => void;
+export type OnChange = () => void;
 
 export interface ProductsContext {
   getProductsList: (params?: FetchProductsParams) => Promise<void>;
@@ -9,5 +12,6 @@ export interface ProductsContext {
   onEdit: OnAction;
   productsData: ProductsData;
   productsList: Product[];
-  searchActualProductsList: (searchText: string, orderBy?: string) => void;
+  productsSearch: string;
+  setProductsSearch: Dispatch<SetStateAction<string>>;
 }

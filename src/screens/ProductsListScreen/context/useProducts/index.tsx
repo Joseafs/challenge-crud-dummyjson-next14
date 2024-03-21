@@ -1,5 +1,5 @@
 import { useRouter } from 'next/navigation';
-import { createContext, FC, PropsWithChildren, useCallback, useContext, useState } from 'react';
+import { createContext, FC, PropsWithChildren, useCallback, useContext, useMemo, useState } from 'react';
 
 import { deleteProduct, getProducts } from '~/services/products';
 import { FetchProductsParams, Product, ProductsData } from '~/services/products/getProducts/types';
@@ -20,9 +20,24 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
 
   const [productsData, setProductsData] = useState<ProductsData>(initialProductsDataState);
-  const [productsList, setProductsList] = useState<Product[]>([]);
+
+  const [productsSearch, setProductsSearch] = useState('');
+  // TODO: make productsOrderBy works with select
+  // const [productsOrderBy, setProductsOrderBy] = useState('');
 
   const [loading, setLoading] = useState(false);
+
+  const productsList: Product[] = useMemo(() => {
+    const { products } = productsData;
+
+    if (!productsSearch) {
+      return products;
+    }
+
+    const filteredList = filterProductsBySearch(products, productsSearch);
+
+    return filteredList;
+  }, [productsData, productsSearch]);
 
   const getProductsList = useCallback(async (params?: FetchProductsParams) => {
     setLoading(true);
@@ -30,28 +45,12 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
     try {
       const data = await getProducts(params);
       setProductsData(data);
-      setProductsList(data.products);
     } catch (e) {
       // TODO: will be nice have a toast or context to send errors;
     } finally {
       setLoading(false);
     }
   }, []);
-
-  const searchActualProductsList = useCallback(
-    (searchText: string, orderBy?: string) => {
-      const { products } = productsData;
-
-      if (!searchText) {
-        return setProductsList(products);
-      }
-
-      const filteredList = filterProductsBySearch(products, searchText);
-
-      setProductsList(filteredList);
-    },
-    [productsData],
-  );
 
   const onDelete = useCallback(
     async (id: number) => {
@@ -94,7 +93,8 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
         onEdit,
         productsData,
         productsList,
-        searchActualProductsList,
+        productsSearch,
+        setProductsSearch,
       }}
     >
       {children}
