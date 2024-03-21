@@ -2,10 +2,14 @@ import styled, { css } from 'styled-components';
 
 import { useThemeFontStyle } from '~/theme/utils';
 
-export const Root = styled.div`
+import { PropsStyleRoot } from './types';
+
+export const Root = styled.div<PropsStyleRoot>`
   display: flex;
-  flex: 1;
   flex-direction: column;
+  max-width: 100%;
+
+  ${({ width }) => (width === 'flex' ? 'flex: 1' : width ? `width: ${width}` : null)};
 `;
 
 export const Label = styled.label`

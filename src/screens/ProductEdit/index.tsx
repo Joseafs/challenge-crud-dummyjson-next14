@@ -23,8 +23,6 @@ const ProductEditWithProvider: FC<Props> = ({ id }) => {
 
   const productCachedData = useMemo(() => productData, [productData]);
 
-  console.log('🚀 ~ productCachedData:', productCachedData);
-
   return (
     <TemplateScreen>
       {loading ? (
@@ -38,12 +36,6 @@ const ProductEditWithProvider: FC<Props> = ({ id }) => {
           <FormEditProductProvider>
             <FormEditProduct id={id} />
           </FormEditProductProvider>
-
-          <br />
-          <br />
-          <pre style={{ fontSize: '2rem', whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}>
-            {JSON.stringify(productCachedData)}
-          </pre>
         </Fragment>
       )}
     </TemplateScreen>

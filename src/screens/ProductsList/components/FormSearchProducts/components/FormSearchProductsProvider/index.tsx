@@ -20,16 +20,8 @@ export const FormSearchProductsProvider: FC<Props> = ({ children }) => {
         // - Dummyjson only works with title search;
 
         setProductsSearch(values.search);
-
         setSubmitting(false);
       }}
-      // validate={(values) => {
-      //   const errors = {} as PropsFormSearch;
-      //   if (!values.search) {
-      //     errors.search = 'Required AAAA';
-      //   }
-      //   return errors;
-      // }}
     >
       <RootForm>{children}</RootForm>
     </Formik>

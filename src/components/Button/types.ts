@@ -4,6 +4,7 @@ import { PropsThemePaletteKeys } from '~/theme/config/types';
 
 export type PropsButtonColor = {
   color?: PropsThemePaletteKeys;
+  fullWidth?: boolean;
 };
 
 export interface Props extends PropsWithChildren, PropsButtonColor {

@@ -12,7 +12,7 @@ import { PropsFormSearch } from './types';
 export const FormSearchProducts: FC = () => {
   const { isSubmitting, handleChange, values } = useFormikContext<PropsFormSearch>();
 
-  const { setSortOption, productsSortOption: sortOption } = useProductsList();
+  const { setSortOption, productsSortOption } = useProductsList();
 
   const handleSortChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const orderBy = event.target.value as ProductsSortOptionsKeys;
@@ -30,7 +30,12 @@ export const FormSearchProducts: FC = () => {
           type="text"
           value={values.search}
         />
-        <SelectRoot label="Ordenação" onChange={handleSortChange} options={sortOptionsList} value={sortOption} />
+        <SelectRoot
+          label="Ordenação"
+          onChange={handleSortChange}
+          options={sortOptionsList}
+          value={productsSortOption}
+        />
         <Button color="secondary" disabled={isSubmitting} type="submit">
           Buscar
         </Button>
