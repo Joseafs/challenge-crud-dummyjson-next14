@@ -2,7 +2,8 @@ import { useRouter } from 'next/navigation';
 import { createContext, FC, PropsWithChildren, useCallback, useContext, useMemo, useState } from 'react';
 
 import { deleteProduct, getProducts } from '~/services/products';
-import { FetchProductsParams, Product, ProductsData } from '~/services/products/getProducts/types';
+import { ProductData } from '~/services/products/getProduct/types';
+import { FetchProductsParams, ProductsData } from '~/services/products/getProducts/types';
 
 import { ProductsContext, ProductsSortOptionsKeys } from './types';
 import { filterProductsBySearch } from './utils/filterProductsBySearch';
@@ -15,22 +16,23 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const [productsData, setProductsData] = useState<ProductsData>(initialProductsDataState);
   const [productsSearch, setProductsSearch] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [sortOption, setSortOption] = useState<ProductsSortOptionsKeys>(sortOptionsList[0].value);
+  const [productsSortOption, setSortOption] = useState<ProductsSortOptionsKeys>(sortOptionsList[0].value);
 
-  const productsList: Product[] = useMemo(() => {
+  const [loading, setLoading] = useState(false);
+
+  const productsList: ProductData[] = useMemo(() => {
     const { products } = productsData;
 
     const filteredList = filterProductsBySearch(products, productsSearch);
 
-    if (sortOption === 'title') {
+    if (productsSortOption === 'title') {
       filteredList.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sortOption === 'brand') {
+    } else if (productsSortOption === 'brand') {
       filteredList.sort((a, b) => a.brand.localeCompare(b.brand));
     }
 
     return filteredList;
-  }, [productsData, productsSearch, sortOption]);
+  }, [productsData, productsSearch, productsSortOption]);
 
   const totalEnabledProducts = useMemo(() => {
     return productsList.reduce((contador, objeto) => {
@@ -96,9 +98,9 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
         productsData,
         productsList,
         productsSearch,
+        productsSortOption,
         setProductsSearch,
         setSortOption,
-        sortOption,
         totalEnabledProducts,
       }}
     >

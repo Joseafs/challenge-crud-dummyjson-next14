@@ -1,7 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
 
 import { SelectOptions } from '~/components/Select/types';
-import { FetchProductsParams, Product, ProductsData } from '~/services/products/getProducts/types';
+import { ProductData } from '~/services/products/getProduct/types';
+import { FetchProductsParams, ProductsData } from '~/services/products/getProducts/types';
 
 export type OnActionId = (id: number) => void;
 export type OnAction = () => void;
@@ -16,10 +17,10 @@ export interface ProductsContext {
   onDelete: OnActionId;
   onEdit: OnActionId;
   productsData: ProductsData;
-  productsList: Product[];
+  productsList: ProductData[];
   productsSearch: string;
+  productsSortOption: ProductsSortOptionsKeys;
   setProductsSearch: Dispatch<SetStateAction<string>>;
   setSortOption: Dispatch<SetStateAction<ProductsSortOptionsKeys>>;
-  sortOption: ProductsSortOptionsKeys;
   totalEnabledProducts: number;
 }

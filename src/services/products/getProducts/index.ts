@@ -6,9 +6,8 @@ import { FetchProductsParams, ProductsData } from './types';
 
 export const getProducts = (params?: FetchProductsParams) => {
   let path = '';
-  if (params?.id) {
-    path = `/${params.id}`;
-  } else if (params?.search) {
+
+  if (params?.search) {
     const queryParams = encodeParamsToString(params.query);
     path = `/search?q=${params.search}${queryParams ? `&${queryParams}` : ''}`;
   } else {

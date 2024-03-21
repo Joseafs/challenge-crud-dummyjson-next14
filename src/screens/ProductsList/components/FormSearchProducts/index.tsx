@@ -2,9 +2,9 @@ import { useFormikContext } from 'formik';
 import { ChangeEvent, FC, Fragment } from 'react';
 
 import { Button, Grid, InputText } from '~/components';
-import { useProductsList } from '~/screens/ProductsListScreen/context/useProducts';
-import { ProductsSortOptionsKeys } from '~/screens/ProductsListScreen/context/useProducts/types';
-import { sortOptionsList } from '~/screens/ProductsListScreen/context/useProducts/values';
+import { useProductsList } from '~/screens/ProductsList/context/useProducts';
+import { ProductsSortOptionsKeys } from '~/screens/ProductsList/context/useProducts/types';
+import { sortOptionsList } from '~/screens/ProductsList/context/useProducts/values';
 
 import { SelectRoot } from './styles';
 import { PropsFormSearch } from './types';
@@ -12,7 +12,7 @@ import { PropsFormSearch } from './types';
 export const FormSearchProducts: FC = () => {
   const { isSubmitting, handleChange, values } = useFormikContext<PropsFormSearch>();
 
-  const { setSortOption, sortOption } = useProductsList();
+  const { setSortOption, productsSortOption: sortOption } = useProductsList();
 
   const handleSortChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const orderBy = event.target.value as ProductsSortOptionsKeys;

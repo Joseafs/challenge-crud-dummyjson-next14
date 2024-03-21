@@ -16,6 +16,9 @@ export const TemplateScreen: FC<Props> = ({ children }) => {
     router.back();
   }, [router]);
 
+  // TODO: need loading here for pages and waits
+  // TODO: need specift maxWidth
+
   return (
     <Root>
       <Header>

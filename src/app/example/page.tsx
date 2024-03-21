@@ -1,5 +1,5 @@
-import { HomeScreen } from '~/screens/Home';
+import { Home } from '~/screens/Home';
 
 export default function ExamplePage() {
-  return <HomeScreen />;
+  return <Home />;
 }

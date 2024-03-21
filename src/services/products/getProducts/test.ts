@@ -24,21 +24,6 @@ describe('getProducts', () => {
     mock.restore();
   });
 
-  test('should match data when get by id', async () => {
-    const mock = new MockAdapter(api);
-    const id = faker.number.int(100);
-
-    const getRouteWithId = `${apiRouteExample}/${id}`;
-
-    mock.onGet(getRouteWithId).reply(HttpStatusCode.Ok, mockProductResponse);
-
-    const data = await getProducts({ id });
-
-    expect(data).toMatchObject(mockProductResponse);
-
-    mock.restore();
-  });
-
   test('should match data with query params', async () => {
     const mock = new MockAdapter(api);
     const queryParams: FetchProductsParams['query'] = {

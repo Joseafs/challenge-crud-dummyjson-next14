@@ -1,6 +1,6 @@
 import { MouseEventHandler } from 'react';
 
-import { Product } from '~/services/products/getProducts/types';
+import { ProductData } from '~/services/products/getProduct/types';
 
 type onClick = MouseEventHandler<HTMLButtonElement>;
 
@@ -8,5 +8,5 @@ export interface Props {
   className?: string;
   onDelete: onClick;
   onEdit: onClick;
-  product: Product;
+  product: ProductData;
 }

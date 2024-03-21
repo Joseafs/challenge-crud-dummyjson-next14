@@ -13,7 +13,7 @@ import { ProductsPagination } from './components/ProductsPagination';
 import { PaginationProvider } from './context/usePagination';
 import { ProductsListProvider } from './context/useProducts';
 
-const ProductsListScreenWithProvider: FC = () => {
+const ProductsListWithProvider: FC = () => {
   return (
     <TemplateScreen>
       <Grid displayContent="space-between" displayType="inline-flex" padding={[2, 1]}>
@@ -38,8 +38,8 @@ const ProductsListScreenWithProvider: FC = () => {
   );
 };
 
-export const ProductsListScreen: FC = () => (
+export const ProductsList: FC = () => (
   <ProductsListProvider>
-    <ProductsListScreenWithProvider />
+    <ProductsListWithProvider />
   </ProductsListProvider>
 );

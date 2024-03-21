@@ -1,7 +1,7 @@
-import { Product } from '~/services/products/getProducts/types';
+import { ProductData } from '~/services/products/getProduct/types';
 import { escapeRegExp } from '~/utils/escapeRegExp';
 
-export const filterProductsBySearch = (products: Product[], searchText: string): Product[] => {
+export const filterProductsBySearch = (products: ProductData[], searchText: string): ProductData[] => {
   if (!searchText) {
     return products;
   }

@@ -1,7 +1,7 @@
 // NOTES:
 // - Order by Params not exist's in dummyjson, only to be doing in front;
 
-import { DeletedProductAttibutes } from '~/services/products/deleteProduct/types';
+import { ProductData } from '~/services/products/getProduct/types';
 
 export interface FetchProductsQueryParams {
   limit?: number;
@@ -17,22 +17,9 @@ export interface FetchProductsParams {
 
 export type SearchProcutsParams = 'title' | 'brand';
 
-export interface Product extends Partial<DeletedProductAttibutes> {
-  brand: string;
-  category: string;
-  description: string;
-  discountPercentage: number;
-  id: number;
-  images: string[];
-  price: number;
-  rating: number;
-  stock: number;
-  thumbnail: string;
-  title: string;
-}
 export interface ProductsData {
   limit: number;
-  products: Product[];
+  products: ProductData[];
   skip: number;
   total: number;
 }

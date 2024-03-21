@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import { FC } from 'react';
 
-import { useProductsList } from '~/screens/ProductsListScreen/context/useProducts';
+import { useProductsList } from '~/screens/ProductsList/context/useProducts';
 
 import { RootForm } from './styles';
 import { Props, PropsFormSearch } from './types';

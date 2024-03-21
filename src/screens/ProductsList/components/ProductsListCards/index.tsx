@@ -2,8 +2,8 @@ import useDidMount from 'beautiful-react-hooks/useDidMount';
 import { FC, useEffect, useMemo } from 'react';
 
 import { CardProduct, Grid } from '~/components';
-import { usePagination } from '~/screens/ProductsListScreen/context/usePagination';
-import { useProductsList } from '~/screens/ProductsListScreen/context/useProducts';
+import { usePagination } from '~/screens/ProductsList/context/usePagination';
+import { useProductsList } from '~/screens/ProductsList/context/useProducts';
 
 import { Root } from './styles';
 
