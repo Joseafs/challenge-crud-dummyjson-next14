@@ -1,18 +1,9 @@
-import { ChangeEvent, InputHTMLAttributes } from 'react';
+import { ChangeEvent } from 'react';
 
-export type PropsStyleRootWidthKeys = 'flex' | string;
+import { Props as TemplateInputProps } from '~/components/TemplateInput/types';
 
-export interface PropsStyleRoot {
-  width?: PropsStyleRootWidthKeys;
-}
-
-export interface Props extends PropsStyleRoot {
-  className?: string;
-  label?: string;
-  name: string;
+export interface Props extends TemplateInputProps {
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   placeholder?: string;
-  required?: boolean;
-  type?: InputHTMLAttributes<unknown>['type'];
-  value?: string | number;
+  value?: string;
 }

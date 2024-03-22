@@ -3,40 +3,49 @@
 exports[`Select Should match snapshot 1`] = `
 <div>
   <div
-    class="sc-217a1f4b-0 ifUWuy"
+    class="sc-24f28faf-2 pvAgd"
   >
     <label
-      class="sc-217a1f4b-3 bciKkD"
+      class="sc-24f28faf-3 bwPOYt"
+      for="select-faker"
     >
       <div
-        class="sc-217a1f4b-4 eTzaEb"
+        class="sc-24f28faf-4 fEHYiL"
       >
         select-field
       </div>
     </label>
-    <select
-      class="sc-217a1f4b-1 dRfoem"
-      data-testid="select-faker"
+    <div
+      class="sc-24f28faf-0 gYHRaT"
     >
-      <option
-        class="sc-217a1f4b-2"
-        value="itachi-uchiha"
+      <div
+        class="sc-24f28faf-1 cvhFNA"
       >
-        Itachi Uchiha
-      </option>
-      <option
-        class="sc-217a1f4b-2"
-        value="tanjiro-kamado"
-      >
-        Tanjiro Kamado
-      </option>
-      <option
-        class="sc-217a1f4b-2"
-        value="gon-freecss"
-      >
-        Gon Freecss
-      </option>
-    </select>
+        <select
+          class="sc-4149cbad-0 eWFVZp"
+          data-testid="select-faker"
+        >
+          <option
+            class="sc-4149cbad-1 ieWTRv"
+            value="itachi-uchiha"
+          >
+            Itachi Uchiha
+          </option>
+          <option
+            class="sc-4149cbad-1 ieWTRv"
+            value="tanjiro-kamado"
+          >
+            Tanjiro Kamado
+          </option>
+          <option
+            class="sc-4149cbad-1 ieWTRv"
+            value="gon-freecss"
+          >
+            Gon Freecss
+          </option>
+        </select>
+      </div>
+    </div>
   </div>
 </div>
 `;

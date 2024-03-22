@@ -3,7 +3,7 @@
 exports[`BackButton Should match snapshot 1`] = `
 <div>
   <button
-    class="sc-b47ab6f0-0 HBlCt sc-c7d2da6b-0 ejOLNy"
+    class="sc-fedb6ee7-0 bByQnk sc-c7d2da6b-0 ejOLNy"
     title="Voltar"
   >
     <svg

@@ -1,16 +1,17 @@
 import { FC } from 'react';
 
-import { CustomSelect, Label, Option, Root, Span } from './styles';
+import { TemplateInput } from '~/components';
+
+import { CustomSelect, Option } from './styles';
 import { SelectProps } from './types';
 
-export const Select: FC<SelectProps> = ({ label, options, value, onChange, className, name }) => {
+export const Select: FC<SelectProps> = (props) => {
+  const { options, value, onChange, name } = props;
+
+  const elementId = `select-${name}`;
+
   return (
-    <Root className={className}>
-      {label && (
-        <Label>
-          <Span>{label}</Span>
-        </Label>
-      )}
+    <TemplateInput {...props} elementId={elementId}>
       <CustomSelect data-testid={`select-${name}`} onChange={onChange} value={value}>
         {options.map((option) => (
           <Option key={option.value} value={option.value}>
@@ -18,6 +19,6 @@ export const Select: FC<SelectProps> = ({ label, options, value, onChange, class
           </Option>
         ))}
       </CustomSelect>
-    </Root>
+    </TemplateInput>
   );
 };

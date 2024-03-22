@@ -17,7 +17,7 @@ interface Example {
 const definitionOfItem = 'produto';
 
 export const FormEditProduct: FC = () => {
-  const { isSubmitting, handleChange, values } = useFormikContext<ProductData>();
+  const { isSubmitting, handleChange, values, dirty, isValid, errors } = useFormikContext<ProductData>();
 
   const { productsCategories, product } = useProductEdit();
 
@@ -32,15 +32,14 @@ export const FormEditProduct: FC = () => {
 
   return (
     <Fragment>
-      <Grid displayType="grid" gridGap="20px" padding={[2]}>
+      <Grid displayType="grid" gridGap="30px" padding={[2]}>
         <GridTemplateInputs displayType="inline-flex">
-          <ImageGalery
-            images={[...product.images, ...product.images, ...product.images]}
-            thumbnail={product.thumbnail}
-          />
+          <ImageGalery images={[...product.images]} thumbnail={product.thumbnail} />
         </GridTemplateInputs>
         <GridTemplateInputs displayType="inline-flex" gridGap="10px">
           <InputText
+            errorDescription={errors.title}
+            hasError={!!errors.title}
             label="Título"
             name="title"
             onChange={handleChange}
@@ -52,6 +51,8 @@ export const FormEditProduct: FC = () => {
         </GridTemplateInputs>
         <GridTemplateInputs displayType="inline-flex" gridGap="10px">
           <InputText
+            errorDescription={errors.brand}
+            hasError={!!errors.brand}
             label="Marca"
             name="brand"
             onChange={handleChange}
@@ -64,6 +65,8 @@ export const FormEditProduct: FC = () => {
         </GridTemplateInputs>
         <GridTemplateInputs displayType="inline-flex" gridGap="10px">
           <InputText
+            errorDescription={errors.price}
+            hasError={!!errors.price}
             label="Preço"
             name="price"
             onChange={handleChange}
@@ -73,6 +76,8 @@ export const FormEditProduct: FC = () => {
             width="flex"
           />
           <InputText
+            errorDescription={errors.discountPercentage}
+            hasError={!!errors.discountPercentage}
             label="Porcentagem de Desconto"
             name="discountPercentage"
             onChange={handleChange}
@@ -85,6 +90,8 @@ export const FormEditProduct: FC = () => {
 
         <GridTemplateInputs displayType="inline-flex" gridGap="10px">
           <InputText
+            errorDescription={errors.rating}
+            hasError={!!errors.rating}
             label="Avaliação"
             name="rating"
             onChange={handleChange}
@@ -94,6 +101,8 @@ export const FormEditProduct: FC = () => {
             width="flex"
           />
           <InputText
+            errorDescription={errors.stock}
+            hasError={!!errors.stock}
             label="Estoque"
             name="stock"
             onChange={handleChange}
@@ -105,6 +114,8 @@ export const FormEditProduct: FC = () => {
         </GridTemplateInputs>
         <GridTemplateInputs displayType="inline-flex" gridGap="10px">
           <Textarea
+            errorDescription={errors.description}
+            hasError={!!errors.description}
             label="Descrição"
             name="description"
             onChange={handleChange}
@@ -114,7 +125,7 @@ export const FormEditProduct: FC = () => {
           />
         </GridTemplateInputs>
         <Grid align="center" displayContent="space-evenly" displayType="inline-flex">
-          <Button color="secondary" disabled={isSubmitting} fullWidth type="submit">
+          <Button color="secondary" disabled={isSubmitting || !isValid || !dirty} fullWidth type="submit">
             Salvar
           </Button>
         </Grid>

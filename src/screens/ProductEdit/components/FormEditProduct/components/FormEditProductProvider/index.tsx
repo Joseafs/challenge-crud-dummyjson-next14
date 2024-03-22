@@ -4,6 +4,7 @@ import { FC, PropsWithChildren } from 'react';
 import { useProductEdit } from '~/screens/ProductEdit/context/useProduct';
 
 import { RootForm } from './styles';
+import { productValidationShema } from './utils/productValidation';
 
 export const FormEditProductProvider: FC<PropsWithChildren> = ({ children }) => {
   const { product, saveProductById } = useProductEdit();
@@ -19,14 +20,7 @@ export const FormEditProductProvider: FC<PropsWithChildren> = ({ children }) => 
 
         setSubmitting(false);
       }}
-      // TODO: add validates for fields
-      // validate={(values) => {
-      //   const errors = {} as PropsFormSearch;
-      //   if (!values.search) {
-      //     errors.search = 'Required AAAA';
-      //   }
-      //   return errors;
-      // }}
+      validationSchema={productValidationShema}
     >
       <RootForm>{children}</RootForm>
     </Formik>
