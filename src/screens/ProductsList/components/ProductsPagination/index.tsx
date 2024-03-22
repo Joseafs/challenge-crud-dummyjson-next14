@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
-import { Grid } from '~/components';
-import Pagination from '~/components/Pagination';
+import { Grid, Pagination } from '~/components';
 import { usePagination } from '~/screens/ProductsList/context/usePagination';
 
 export const ProductsPagination: FC = () => {

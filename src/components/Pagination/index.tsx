@@ -5,7 +5,7 @@ import { Button } from '~/components';
 import { Root, Span } from './styles';
 import { PaginationProps } from './types';
 
-const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
+export const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
   const handlePageChange = (newPage: number) => {
     if (newPage >= 1 && newPage <= totalPages && newPage !== currentPage) {
       onPageChange(newPage);
@@ -23,10 +23,8 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
       </Span>
 
       <Button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
-        Próxima
+        Próximo
       </Button>
     </Root>
   );
 };
-
-export default Pagination;

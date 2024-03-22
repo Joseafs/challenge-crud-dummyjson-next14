@@ -1,3 +1,1 @@
-export const escapeRegExp = (text: string): string => {
-  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-};
+export const escapeRegExp = (text: string): string => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

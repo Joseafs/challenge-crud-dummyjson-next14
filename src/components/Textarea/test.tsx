@@ -6,7 +6,7 @@ import { snapshotYamamotoName } from '~/utils/mocks/snapshotMockValues';
 import { Textarea } from '.';
 
 describe('Textarea', () => {
-  test('Should check input change', () => {
+  test('Should check text change', () => {
     const mockFn = jest.fn();
     const { getByTestId } = render(
       withThemeProvider(<Textarea label="Text test" name="test" onChange={mockFn}></Textarea>),
