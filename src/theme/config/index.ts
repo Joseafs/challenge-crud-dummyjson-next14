@@ -75,6 +75,7 @@ export const theme: PropsTheme = {
     },
 
     background: {
+      veil: 'rgba(0,0,0, .6)',
       default: 'rgb(255, 255, 255)',
       divider: 'rgba(0,0,0,.1)',
     },

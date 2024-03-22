@@ -12,7 +12,7 @@ import { ProductEditProvider, useProductEdit } from './context/useProduct';
 import { ProviderProductProps } from './context/useProduct/types';
 
 const ProductEditWithProvider: FC<ProviderProductProps> = ({ createMode }) => {
-  const { getProductData, product } = useProductEdit();
+  const { getProductData, product, loading } = useProductEdit();
 
   useDidMount(() => {
     getProductData();
@@ -26,7 +26,7 @@ const ProductEditWithProvider: FC<ProviderProductProps> = ({ createMode }) => {
   }, [createMode, product.title]);
 
   return (
-    <TemplateScreen buttonBackRoute="/products/" hasBackButton>
+    <TemplateScreen buttonBackRoute="/products/" hasBackButton loading={loading}>
       <Fragment>
         <Grid displayContent="space-between" displayType="inline-flex" padding={[2, 1]}>
           <PageTitle color="primary">{pageTitle}</PageTitle>

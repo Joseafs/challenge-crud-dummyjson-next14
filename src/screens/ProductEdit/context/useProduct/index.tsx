@@ -16,7 +16,7 @@ export const ProductEditProvider: FC<ProviderProductProps> = ({ children, create
   const [productData, setProductData] = useState<ProductData>(initialProductDataState);
   const [productsCategoriesData, setProductsCategoriesData] = useState<ProductsCategoriesData>([]);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const fetchProductWithID = useCallback(async () => {
     if (!id) return;

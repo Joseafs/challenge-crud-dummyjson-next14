@@ -6,6 +6,7 @@ export { Container } from './Container';
 export { Grid } from './Grid';
 export { ImageFit } from './ImageFit';
 export { InputText } from './InputText';
+export { Loading } from './Loading';
 export { PageTitle } from './PageTitle';
 export { Pagination } from './Pagination';
 export { Select } from './Select';

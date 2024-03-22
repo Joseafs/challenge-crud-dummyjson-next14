@@ -11,11 +11,12 @@ import { FormSearchProductsProvider } from './components/FormSearchProducts/comp
 import { ProductsListCards } from './components/ProductsListCards';
 import { ProductsPagination } from './components/ProductsPagination';
 import { PaginationProvider } from './context/usePagination';
-import { ProductsListProvider } from './context/useProducts';
+import { ProductsListProvider, useProductsList } from './context/useProducts';
 
 export const ProductsListWithProvider: FC = () => {
+  const { loading } = useProductsList();
   return (
-    <TemplateScreen>
+    <TemplateScreen loading={loading}>
       <Grid displayContent="space-between" displayType="inline-flex" padding={[2, 1]}>
         <PageTitle color="primary">Produtos</PageTitle>
         <Link href="/products/add/">

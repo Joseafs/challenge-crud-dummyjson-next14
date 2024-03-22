@@ -76,6 +76,7 @@ export type PropsTheme = {
       1000: string;
     };
     background: {
+      veil: string;
       default: string;
       divider: string;
     };

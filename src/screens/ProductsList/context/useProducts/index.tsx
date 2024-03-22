@@ -18,7 +18,7 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
   const [productsSearch, setProductsSearch] = useState('');
   const [productsSortOption, setSortOption] = useState<ProductsSortOptionsKeys>(sortOptionsList[0].value);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const productsList: ProductData[] = useMemo(() => {
     const { products } = productsData;
