@@ -1,5 +1,5 @@
 import { useFormikContext } from 'formik';
-import { FC, Fragment, useMemo } from 'react';
+import { FC, Fragment, useCallback, useMemo } from 'react';
 
 import { Button, Grid, InputText, Textarea } from '~/components';
 import { ImageGalery } from '~/components/ImageGalery';
@@ -7,6 +7,7 @@ import { useProductEdit } from '~/screens/ProductEdit/context/useProduct';
 import { ProductData } from '~/services/products/getProduct/types';
 import { generateArray } from '~/utils/generateArray';
 
+import { InputImageURL } from './components/InputImageURL';
 import { GridTemplateInputs, SelectRoot } from './styles';
 
 interface Example {
@@ -17,9 +18,33 @@ interface Example {
 const definitionOfItem = 'produto';
 
 export const FormEditProduct: FC = () => {
-  const { isSubmitting, handleChange, values, dirty, isValid, errors } = useFormikContext<ProductData>();
+  const { isSubmitting, handleChange, values, dirty, isValid, errors, setValues, setFieldValue } =
+    useFormikContext<ProductData>();
 
-  const { productsCategories, product } = useProductEdit();
+  const { productsCategories } = useProductEdit();
+
+  const removeImageByIndex = useCallback(
+    (indexToRemove: number) => {
+      setValues((values) => {
+        const newImages = [...values.images];
+        newImages.splice(indexToRemove, 1);
+        return { ...values, images: newImages };
+      });
+    },
+    [setValues],
+  );
+
+  const promoteImageToThumbnailByIndex = useCallback(
+    (indexToPromote: number) => {
+      setValues((values) => {
+        const newImages = [...values.images, values.thumbnail];
+        const thumbnailImage = newImages.splice(indexToPromote, 1)[0];
+
+        return { ...values, images: newImages, thumbnail: thumbnailImage };
+      });
+    },
+    [setValues],
+  );
 
   const categoriesSelectOption = useMemo(
     () =>
@@ -34,8 +59,14 @@ export const FormEditProduct: FC = () => {
     <Fragment>
       <Grid displayType="grid" gridGap="30px" padding={[2]}>
         <GridTemplateInputs displayType="inline-flex">
-          <ImageGalery images={[...product.images]} thumbnail={product.thumbnail} />
+          <ImageGalery
+            images={values.images}
+            onDelete={removeImageByIndex}
+            onPromoteThumbnail={promoteImageToThumbnailByIndex}
+            thumbnail={values.thumbnail}
+          />
         </GridTemplateInputs>
+        <InputImageURL />
         <GridTemplateInputs displayType="inline-flex" gridGap="10px">
           <InputText
             errorDescription={errors.title}
@@ -61,7 +92,12 @@ export const FormEditProduct: FC = () => {
             value={values.brand}
             width="flex"
           />
-          <SelectRoot label="Categorias" name="category" onChange={handleChange} options={categoriesSelectOption} />
+          <SelectRoot
+            label="Categorias"
+            name="category"
+            onChange={(e) => setFieldValue('category', e.target.value)}
+            options={categoriesSelectOption}
+          />
         </GridTemplateInputs>
         <GridTemplateInputs displayType="inline-flex" gridGap="10px">
           <InputText

@@ -4,7 +4,7 @@ export interface PropsStyleRoot {
   width?: PropsStyleRootWidthKeys;
 }
 
-export interface OwnProps extends PropsStyleRoot {
+interface OwnProps extends PropsStyleRoot {
   disabled?: boolean;
   elementId?: string;
   errorDescription?: string;
