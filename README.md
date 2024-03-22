@@ -21,7 +21,7 @@ Esse é um projeto boilerplate criado com o objeto de acelerar novos projetos, d
 ## Requerimentos para rodar o projeto
 
 ```bash
-"yarn": "<=1.22.17",
+"yarn": ">=1.22.17 <=1.22.22",
 "node": ">=18 <=20.11.1"
 ```
 
