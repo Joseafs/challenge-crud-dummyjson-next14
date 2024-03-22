@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonText Should match snapshot 1`] = `
+exports[`Button Should match snapshot 1`] = `
 <div>
   <button
     class="sc-fedb6ee7-0 bByQnk"
-    type="button"
   />
 </div>
 `;

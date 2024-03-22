@@ -6,7 +6,7 @@ import { api } from '~/services/api';
 import { AxiosErrorResponse } from '~/services/api/error/types';
 import { apiRouteProductsCategories } from '~/services/products';
 
-import { mockProductCategoriesResponse } from './mock';
+import { mockProductsCategoriesResponse } from './mock';
 
 import { getProductsCategories } from '.';
 
@@ -14,11 +14,11 @@ describe('getProductsCategories', () => {
   test('should match data when get by id', async () => {
     const mock = new MockAdapter(api);
 
-    mock.onGet(apiRouteProductsCategories).reply(HttpStatusCode.Ok, mockProductCategoriesResponse);
+    mock.onGet(apiRouteProductsCategories).reply(HttpStatusCode.Ok, mockProductsCategoriesResponse);
 
     const data = await getProductsCategories();
 
-    expect(data).toMatchObject(mockProductCategoriesResponse);
+    expect(data).toMatchObject(mockProductsCategoriesResponse);
 
     mock.restore();
   });

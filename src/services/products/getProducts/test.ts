@@ -7,7 +7,7 @@ import { AxiosErrorResponse } from '~/services/api/error/types';
 import { apiRouteProducts } from '~/services/products';
 import { encodeParamsToString } from '~/utils/encodeParamsToString';
 
-import { mockProductResponse, mockProductsResponse } from './mock';
+import { mockProductsResponse } from './mock';
 import { FetchProductsParams } from './types';
 
 import { getProducts } from '.';
@@ -33,11 +33,11 @@ describe('getProducts', () => {
 
     const getRouteWithParams = `${apiRouteProducts}?${encodeParamsToString(queryParams)}`;
 
-    mock.onGet(getRouteWithParams).reply(HttpStatusCode.Ok, mockProductResponse);
+    mock.onGet(getRouteWithParams).reply(HttpStatusCode.Ok, mockProductsResponse);
 
     const data = await getProducts({ query: queryParams });
 
-    expect(data).toMatchObject(mockProductResponse);
+    expect(data).toMatchObject(mockProductsResponse);
 
     mock.restore();
   });

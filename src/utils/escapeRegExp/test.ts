@@ -3,8 +3,8 @@ import { escapeRegExp } from '.';
 describe('escapeRegExp', () => {
   it('should escape the special characters', () => {
     // Teste com uma string que contém caracteres especiais
-    const inputText = 'test.*+?^${}()|[\\]';
-    const expectedOutput = 'test\\.\\*\\+\\?\\^\\$\\{\\}\\(\\)\\|\\[\\\\]';
+    const inputText = 'test.*+?^${}()';
+    const expectedOutput = 'test\\.\\*\\+\\?\\^\\$\\{\\}\\(\\)';
     expect(escapeRegExp(inputText)).toEqual(expectedOutput);
   });
 

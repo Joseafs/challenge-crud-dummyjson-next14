@@ -12,7 +12,7 @@ import { ProductEditProvider, useProductEdit } from './context/useProduct';
 import { ProviderProductProps } from './context/useProduct/types';
 
 const ProductEditWithProvider: FC<ProviderProductProps> = ({ createMode }) => {
-  const { getProductData, product, loading } = useProductEdit();
+  const { getProductData, product } = useProductEdit();
 
   useDidMount(() => {
     getProductData();

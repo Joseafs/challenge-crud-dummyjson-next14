@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BackButton Should match snapshot 1`] = `
+exports[`ButtonIcon Should match snapshot 1`] = `
 <div>
   <button
     class="sc-fedb6ee7-0 bByQnk sc-4a5d1c39-0 bhhzXd"
-    type="button"
   >
     <span
       class="sc-4a5d1c39-1 clKfGv"

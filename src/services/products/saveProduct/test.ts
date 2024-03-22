@@ -6,7 +6,7 @@ import { api } from '~/services/api';
 import { AxiosErrorResponse } from '~/services/api/error/types';
 import { apiRouteProducts } from '~/services/products';
 
-import { mockProductResponse } from './mock';
+import { mockProductSaveResponse } from './mock';
 
 import { saveProduct } from '.';
 
@@ -18,11 +18,11 @@ describe('saveProduct', () => {
 
     const getRouteWithId = `${apiRouteProducts}/${id}`;
 
-    mock.onPut(getRouteWithId).reply(HttpStatusCode.Ok, mockProductResponse);
+    mock.onPut(getRouteWithId).reply(HttpStatusCode.Ok, mockProductSaveResponse);
 
     const data = await saveProduct(id, body);
 
-    expect(data).toMatchObject(mockProductResponse);
+    expect(data).toMatchObject(mockProductSaveResponse);
 
     mock.restore();
   });

@@ -1,4 +1,4 @@
-export const mockProductCategoriesResponse: string[] = [
+export const mockProductsCategoriesResponse: string[] = [
   'smartphones',
   'laptops',
   'fragrances',

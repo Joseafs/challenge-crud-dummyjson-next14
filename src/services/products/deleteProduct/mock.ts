@@ -1,7 +1,7 @@
 /* eslint-disable sort-keys */
 import { DeletedProductResponse } from './types';
 
-export const mockProductsResponse: DeletedProductResponse = {
+export const mockProductDeleteResponse: DeletedProductResponse = {
   id: 2,
   title: 'iPhone X',
   description: 'SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...',

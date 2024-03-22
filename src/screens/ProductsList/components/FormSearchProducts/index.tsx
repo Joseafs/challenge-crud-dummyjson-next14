@@ -33,6 +33,7 @@ export const FormSearchProducts: FC = () => {
         />
         <SelectRoot
           label="Ordenação"
+          name="order"
           onChange={handleSortChange}
           options={sortOptionsList}
           value={productsSortOption}

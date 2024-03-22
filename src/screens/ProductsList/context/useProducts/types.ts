@@ -11,7 +11,7 @@ export type ProductsSortOptionsKeys = 'title' | 'brand';
 
 export interface ProductsSortOptionsList extends SelectOptions<ProductsSortOptionsKeys> {}
 
-export interface ProductsContext {
+export interface ProductsListContextProps {
   getProductsList: (params?: FetchProductsParams) => Promise<void>;
   loading: boolean;
   onDelete: OnActionId;

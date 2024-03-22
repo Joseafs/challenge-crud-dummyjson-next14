@@ -5,11 +5,11 @@ import { deleteProduct, getProducts } from '~/services/products';
 import { ProductData } from '~/services/products/getProduct/types';
 import { FetchProductsParams, ProductsData } from '~/services/products/getProducts/types';
 
-import { ProductsContext, ProductsSortOptionsKeys } from './types';
+import { ProductsListContextProps, ProductsSortOptionsKeys } from './types';
 import { filterProductsBySearch } from './utils/filterProductsBySearch';
 import { initialProductsDataState, sortOptionsList } from './values';
 
-export const ProductsListContext = createContext({} as ProductsContext);
+export const ProductsListContext = createContext({} as ProductsListContextProps);
 
 export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
