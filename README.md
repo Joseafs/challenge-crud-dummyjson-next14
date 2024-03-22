@@ -1,8 +1,45 @@
-Esse é um projeto boilerplate criado com o objeto de acelerar novos projetos, desafios e no que mais for útil !
+## Esse é um projeto de desafio:
+
+### Instruções:
+
+- O desafio consiste em desenvolver uma simples aplicação WEB para um curso on-line, com as seguintes funcionalidades:
+
+- C.R.U.D de Produtos:
+
+  - Listagem (Com paginação);
+  - Criação;
+  - Alteração;
+  - Deletar;
+
+- Cada produto pode ter uma ou mais categorias vinculadas ao produto.
+- Busca de Produtos(No Front)
+- Buscar produtos por Title ou Brand Ordenacao de produtos por Title ou Brand
+- Deve se mostrar todos os atributos que tiverem na API
+
+### API de Referência:
+
+- https://dummyjson.com/docs/
+
+### Pontos IMPORTANTES:
+
+- Será avaliado o Layout;
+- Será avaliada a qualidade e organização do código;
+- É necessário fazer testes;
+
+### Requisitos Bônus:
+
+- Deploy da aplicação em alguma cloud (aws, heroku, Github Pages etc);
+- Utilizar de typescript;
+- Utilizar de Next.js
+- Autenticação de usuários
 
 ---
 
-## Nesse Projeto foi utilizado como base:
+## Boilerplate base:
+
+Nesse projeto utilizei o meu [boilerplate](https://github.com/Joseafs/boilerplate-next-styled-2024) como base para dar continuídade
+
+### O que há no projeto
 
 - [Next.js (14.1.3)](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
