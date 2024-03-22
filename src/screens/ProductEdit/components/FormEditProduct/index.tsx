@@ -2,7 +2,7 @@ import { useFormikContext } from 'formik';
 import { FC, Fragment, useCallback, useMemo } from 'react';
 
 import { Button, Grid, InputText, Textarea } from '~/components';
-import { ImageGalery } from '~/components/ImageGalery';
+import { ImageGallery } from '~/components/ImageGallery';
 import { useProductEdit } from '~/screens/ProductEdit/context/useProduct';
 import { ProductData } from '~/services/products/getProduct/types';
 import { generateArray } from '~/utils/generateArray';
@@ -59,7 +59,7 @@ export const FormEditProduct: FC = () => {
     <Fragment>
       <Grid displayType="grid" gridGap="30px" padding={[2]}>
         <GridTemplateInputs displayType="inline-flex">
-          <ImageGalery
+          <ImageGallery
             images={values.images}
             onDelete={removeImageByIndex}
             onPromoteThumbnail={promoteImageToThumbnailByIndex}

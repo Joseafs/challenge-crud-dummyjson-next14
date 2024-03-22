@@ -1,10 +1,14 @@
+import Image from 'next/image';
+
 export type PropsObjectFit = 'cover' | 'contain';
 
 export type PropsImageFit = {
   fit?: PropsObjectFit;
 };
 
-export interface Props extends PropsImageFit {
+type ImageNext = typeof Image;
+
+export interface Props extends PropsImageFit, Partial<ImageNext> {
   className?: string;
   description?: string;
   fill?: boolean;
