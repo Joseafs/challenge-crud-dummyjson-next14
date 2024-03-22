@@ -93,10 +93,13 @@ export const FormEditProduct: FC = () => {
             width="flex"
           />
           <SelectRoot
+            errorDescription={errors.category}
+            hasError={!!errors.category}
             label="Categorias"
             name="category"
             onChange={(e) => setFieldValue('category', e.target.value)}
             options={categoriesSelectOption}
+            value={values.category}
           />
         </GridTemplateInputs>
         <GridTemplateInputs displayType="inline-flex" gridGap="10px">

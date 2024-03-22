@@ -1,7 +1,7 @@
 'use client';
 
 import useDidMount from 'beautiful-react-hooks/useDidMount';
-import { FC, Fragment } from 'react';
+import { FC, Fragment, useMemo } from 'react';
 
 import { Grid, PageTitle } from '~/components';
 import { TemplateScreen } from '~/components/TemplateScreen';
@@ -9,38 +9,38 @@ import { TemplateScreen } from '~/components/TemplateScreen';
 import { FormEditProduct } from './components/FormEditProduct';
 import { FormEditProductProvider } from './components/FormEditProduct/components/FormEditProductProvider';
 import { ProductEditProvider, useProductEdit } from './context/useProduct';
+import { ProviderProductProps } from './context/useProduct/types';
 
-interface Props {
-  id: number;
-}
-
-const ProductEditWithProvider: FC<Props> = ({ id }) => {
-  const { getProductById, product, loading } = useProductEdit();
+const ProductEditWithProvider: FC<ProviderProductProps> = ({ createMode }) => {
+  const { getProductData, product, loading } = useProductEdit();
 
   useDidMount(() => {
-    getProductById(id);
+    getProductData();
   });
+
+  const pageTitle = useMemo(() => {
+    if (createMode) {
+      return 'Adicionar novo produto';
+    }
+    return `Produto ${product.title}`;
+  }, [createMode, product.title]);
 
   return (
     <TemplateScreen buttonBackRoute="/products/" hasBackButton>
-      {loading ? (
-        'Carregando'
-      ) : (
-        <Fragment>
-          <Grid displayContent="space-between" displayType="inline-flex" padding={[2, 1]}>
-            <PageTitle color="primary">Produto {product.title}</PageTitle>
-          </Grid>
-          <FormEditProductProvider>
-            <FormEditProduct />
-          </FormEditProductProvider>
-        </Fragment>
-      )}
+      <Fragment>
+        <Grid displayContent="space-between" displayType="inline-flex" padding={[2, 1]}>
+          <PageTitle color="primary">{pageTitle}</PageTitle>
+        </Grid>
+        <FormEditProductProvider>
+          <FormEditProduct />
+        </FormEditProductProvider>
+      </Fragment>
     </TemplateScreen>
   );
 };
 
-export const ProductEdit: FC<Props> = ({ id }) => (
-  <ProductEditProvider>
-    <ProductEditWithProvider id={id} />
+export const ProductEdit: FC<ProviderProductProps> = ({ id, createMode = false }) => (
+  <ProductEditProvider createMode={createMode} id={id}>
+    <ProductEditWithProvider createMode={createMode} />
   </ProductEditProvider>
 );

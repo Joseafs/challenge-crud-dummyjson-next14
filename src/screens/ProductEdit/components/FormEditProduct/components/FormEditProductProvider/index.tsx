@@ -9,9 +9,9 @@ import { productValidationShema } from './utils/productValidation';
 
 export const FormEditProductProvider: FC<PropsWithChildren> = ({ children }) => {
   const { product, saveProductById } = useProductEdit();
-
   return (
     <Formik<FormikProps>
+      enableReinitialize
       initialValues={{ ...product, urlImage: '' }}
       onSubmit={async (values, { setSubmitting }) => {
         // NOTE: dummjson only have a postRoute for simulations, but this request doesn't change the API data;

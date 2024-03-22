@@ -10,7 +10,7 @@ export const productValidationShema = Yup.object().shape({
   description: Yup.string().min(3, wordTooShort).max(200, wordTooLong).required(wordRequiredByValue('Descrição')),
   title: Yup.string().min(3, wordTooShort).max(50, wordTooLong).required(wordRequiredByValue('Título')),
 
-  category: Yup.string().required(wordRequiredByValue('Por favor, selecione ao menos uma categoria.')),
+  category: Yup.string().required('Por favor, selecione uma categoria.'),
   thumbnail: Yup.string().url().required('Insira uma imagem e a promova a Capa'),
 
   discountPercentage: Yup.number().min(0).required(wordPriceCantBeZero('Porcentagem de Desconto')),
@@ -18,5 +18,8 @@ export const productValidationShema = Yup.object().shape({
   rating: Yup.number().min(0).required(wordRequiredByValue('Avaliação')),
   stock: Yup.number().min(0).required(wordRequiredByValue('Estoque')),
 
-  urlImage: Yup.string().url('Por gentileza, insira uma URL de imagem válida.').required('Insida uma imagem válida !'),
+  urlImage: Yup.string().when('images', {
+    is: (value: []) => value && value.length > 0,
+    then: (schema) => schema.required('Por gentileza, insira uma URL de imagem válida.'),
+  }),
 });

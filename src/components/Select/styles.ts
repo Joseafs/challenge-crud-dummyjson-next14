@@ -16,7 +16,7 @@ export const CustomSelect = styled.select`
   `}
 `;
 
-export const Option = styled.option`
+export const SelectOption = styled.option`
   text-transform: capitalize;
 
   ${({ theme }) => css`

@@ -3,38 +3,31 @@
 exports[`TemplateScreen Should match snapshot 1`] = `
 <div>
   <div
-    class="sc-36588e0e-0 jTkvOt"
+    class="sc-896edceb-0 fzsaPD"
   >
     <header
-      class="sc-36588e0e-1 cvtwAa"
+      class="sc-896edceb-1 kioSqA"
     >
-      <button
-        class="sc-fedb6ee7-0 bByQnk sc-c7d2da6b-0 ejOLNy"
-        title="Voltar"
+      <div
+        class="sc-4e9890c7-0 gkPA-dI"
       >
-        <svg
-          class="sc-c7d2da6b-1 eQDbvn"
-          fill="currentColor"
-          height="1em"
-          stroke="currentColor"
-          stroke-width="0"
-          viewBox="0 0 16 16"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-            fill-rule="evenodd"
-          />
-        </svg>
-        Voltar
-      </button>
+        <div
+          class="sc-5788b8da-0 gzmyym"
+        />
+      </div>
     </header>
     <main
-      class="sc-36588e0e-2 ktNfYw"
+      class="sc-896edceb-2 doPaXi"
     >
-      Yamamoto, the Captain-Commander of the Gotei 13, wields the fearsome Zanpakuto Ryujin Jakka. His fiery power and unwavering resolve make him a legend in Soul Society.
+      <div
+        class="sc-4e9890c7-0 gkPA-dI"
+      >
+        Yamamoto, the Captain-Commander of the Gotei 13, wields the fearsome Zanpakuto Ryujin Jakka. His fiery power and unwavering resolve make him a legend in Soul Society.
+      </div>
     </main>
+    <footer
+      class="sc-896edceb-3 dRGURq"
+    />
   </div>
 </div>
 `;

@@ -3,10 +3,11 @@
 exports[`BackButton Should match snapshot 1`] = `
 <div>
   <button
-    class="sc-fedb6ee7-0 bByQnk sc-612fa3ad-0 jKVuXC"
+    class="sc-fedb6ee7-0 bByQnk sc-4a5d1c39-0 bhhzXd"
+    type="button"
   >
     <span
-      class="sc-612fa3ad-1 fmDkVe"
+      class="sc-4a5d1c39-1 clKfGv"
     >
       <svg
         fill="currentColor"

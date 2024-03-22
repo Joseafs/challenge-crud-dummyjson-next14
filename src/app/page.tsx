@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { Home } from '~/screens/Home';
 
 export const metadata: Metadata = {
-  title: 'Home page',
+  title: 'Redirecting',
 };
 
 export default function HomePage() {

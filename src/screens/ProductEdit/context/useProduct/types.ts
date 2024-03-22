@@ -1,8 +1,15 @@
+import { PropsWithChildren } from 'react';
+
 import { ProductData } from '~/services/products/getProduct/types';
 import { ProductsCategoriesData } from '~/services/products/getProductsCategories/types';
 
+export interface ProviderProductProps extends PropsWithChildren {
+  createMode?: boolean;
+  id?: number;
+}
+
 export interface ProductContext {
-  getProductById: (id: number) => Promise<void>;
+  getProductData: () => Promise<void>;
   loading: boolean;
   product: ProductData;
   productsCategories: ProductsCategoriesData;

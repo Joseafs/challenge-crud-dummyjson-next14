@@ -10,7 +10,7 @@ exports[`Select Should match snapshot 1`] = `
       for="select-faker"
     >
       <div
-        class="sc-24f28faf-4 fEHYiL"
+        class="sc-24f28faf-4 hZqqgq"
       >
         select-field
       </div>
@@ -22,23 +22,28 @@ exports[`Select Should match snapshot 1`] = `
         class="sc-24f28faf-1 cvhFNA"
       >
         <select
-          class="sc-4149cbad-0 eWFVZp"
+          class="sc-84a82da7-0 hDYMcA"
           data-testid="select-faker"
         >
           <option
-            class="sc-4149cbad-1 ieWTRv"
+            class="sc-84a82da7-1 kdtNMT"
+          >
+            Selecione
+          </option>
+          <option
+            class="sc-84a82da7-1 kdtNMT"
             value="itachi-uchiha"
           >
             Itachi Uchiha
           </option>
           <option
-            class="sc-4149cbad-1 ieWTRv"
+            class="sc-84a82da7-1 kdtNMT"
             value="tanjiro-kamado"
           >
             Tanjiro Kamado
           </option>
           <option
-            class="sc-4149cbad-1 ieWTRv"
+            class="sc-84a82da7-1 kdtNMT"
             value="gon-freecss"
           >
             Gon Freecss

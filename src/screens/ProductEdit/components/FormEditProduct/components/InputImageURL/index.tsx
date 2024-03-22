@@ -36,7 +36,7 @@ export const InputImageURL: FC = () => {
         hasError={hasErrors}
         label="Adicionar imagem por URL"
         name="urlImagem"
-        onChange={(e) => setFieldValue('urlImagem', e.target.value)}
+        onChange={(e) => setFieldValue('urlImage', e.target.value)}
         placeholder={`Informe a URL da imagem para upload`}
         type="text"
         value={values.urlImage}

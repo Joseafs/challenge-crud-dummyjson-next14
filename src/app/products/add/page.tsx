@@ -1,3 +1,5 @@
-export default function AddProductPage() {
-  return <div>Add Product Page</div>;
+import { ProductEdit } from '~/screens/ProductEdit';
+
+export default function ProductAddPage() {
+  return <ProductEdit createMode />;
 }

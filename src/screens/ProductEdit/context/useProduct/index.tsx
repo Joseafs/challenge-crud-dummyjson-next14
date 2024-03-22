@@ -1,18 +1,16 @@
 import { useRouter } from 'next/navigation';
-import { createContext, FC, PropsWithChildren, useCallback, useContext, useMemo, useState } from 'react';
+import { createContext, FC, useCallback, useContext, useMemo, useState } from 'react';
 
-import { getProductsCategories } from '~/services/products';
-import { getProduct } from '~/services/products/getProduct';
+import { addProduct, getProduct, getProductsCategories, saveProduct } from '~/services/products';
 import { ProductData } from '~/services/products/getProduct/types';
 import { ProductsCategoriesData } from '~/services/products/getProductsCategories/types';
-import { saveProduct } from '~/services/products/saveProduct';
 
-import { ProductContext } from './types';
+import { ProductContext, ProviderProductProps } from './types';
 import { initialProductDataState } from './values';
 
 export const ProductEditContext = createContext({} as ProductContext);
 
-export const ProductEditProvider: FC<PropsWithChildren> = ({ children }) => {
+export const ProductEditProvider: FC<ProviderProductProps> = ({ children, createMode = false, id }) => {
   const router = useRouter();
 
   const [productData, setProductData] = useState<ProductData>(initialProductDataState);
@@ -20,23 +18,41 @@ export const ProductEditProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const [loading, setLoading] = useState(false);
 
-  const getProductById = useCallback(
-    async (id: number) => {
-      setLoading(true);
+  const fetchProductWithID = useCallback(async () => {
+    if (!id) return;
 
-      try {
-        const [dataProduct, dataProductsCategories] = await Promise.all([getProduct(id), getProductsCategories()]);
+    const [dataProduct, dataProductsCategories] = await Promise.all([getProduct(id), getProductsCategories()]);
 
-        setProductData(dataProduct);
-        setProductsCategoriesData(dataProductsCategories);
-      } catch (e) {
-        alert('Produto não encontrado');
-        router.replace('/products');
-      } finally {
-        setLoading(false);
+    setProductData(dataProduct);
+    setProductsCategoriesData(dataProductsCategories);
+  }, [id]);
+
+  const getProductData = useCallback(async () => {
+    setLoading(true);
+
+    try {
+      if (createMode) {
+        const data = await getProductsCategories();
+
+        setProductsCategoriesData(data);
+      } else {
+        fetchProductWithID();
       }
+    } catch (e) {
+      router.replace('/products/');
+    } finally {
+      setLoading(false);
+    }
+  }, [createMode, fetchProductWithID, router]);
+
+  const saveProductWithID = useCallback(
+    async (jsonFormat: string) => {
+      if (!id) return;
+      const data = await saveProduct(id, jsonFormat);
+
+      setProductData(data);
     },
-    [router],
+    [id],
   );
 
   const saveProductById = useCallback(
@@ -47,17 +63,24 @@ export const ProductEditProvider: FC<PropsWithChildren> = ({ children }) => {
         const { id, ...valuesWithoutId } = values;
         const jsonFormat = JSON.stringify(valuesWithoutId);
 
-        const data = await saveProduct(productData.id, jsonFormat);
+        if (createMode) {
+          await addProduct(jsonFormat);
 
-        setProductData(data);
+          alert('Produto salvo com sucesso, você será redirecionado a listagem');
+          router.push('/products/');
+          // As we know, the products it's save at dummyjson, so he isn't be show;
+          // TODO: call some snackbar on place of alert;
+        } else {
+          saveProductWithID(jsonFormat);
+        }
       } catch (e) {
         alert('Produto não encontrado');
-        router.replace('/products');
+        router.replace('/products/');
       } finally {
         setLoading(false);
       }
     },
-    [productData.id, router],
+    [createMode, router, saveProductWithID],
   );
 
   const product = useMemo(() => productData, [productData]);
@@ -66,7 +89,7 @@ export const ProductEditProvider: FC<PropsWithChildren> = ({ children }) => {
   return (
     <ProductEditContext.Provider
       value={{
-        getProductById,
+        getProductData,
         loading,
         product,
         productsCategories,

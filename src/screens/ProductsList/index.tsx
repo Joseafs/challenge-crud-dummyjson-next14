@@ -18,7 +18,7 @@ const ProductsListWithProvider: FC = () => {
     <TemplateScreen>
       <Grid displayContent="space-between" displayType="inline-flex" padding={[2, 1]}>
         <PageTitle color="primary">Produtos</PageTitle>
-        <Link href="/add">
+        <Link href="/products/add/">
           <Button color="primary" title="Adicionar">
             Adicionar
           </Button>
