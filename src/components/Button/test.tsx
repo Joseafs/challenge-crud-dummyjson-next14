@@ -6,7 +6,7 @@ import { snapshotYamamotoName } from '~/utils/mocks/snapshotMockValues';
 
 import { Button } from '.';
 
-describe('ButtonText', () => {
+describe('Button', () => {
   test('Should match snapshot', () => {
     const { container } = render(withThemeProvider(<Button />));
     expect(container).toMatchSnapshot();

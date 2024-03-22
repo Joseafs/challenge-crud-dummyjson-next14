@@ -5,11 +5,9 @@ import { withThemeProvider } from '~/theme/utils/withThemeProvider';
 
 import { ButtonIcon } from '.';
 
-describe('BackButton', () => {
+describe('ButtonIcon', () => {
   test('Should match snapshot', () => {
     const { container } = render(withThemeProvider(<ButtonIcon icon={FaAddressBook} />));
     expect(container).toMatchSnapshot();
   });
-
-  // TODO: should click and back router/navigation;
 });

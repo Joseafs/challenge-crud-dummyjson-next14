@@ -1,0 +1,224 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardProduct Should match snapshot 1`] = `
+<div>
+  <div
+    class="sc-68f59890-0 fhTAqH"
+  >
+    <div
+      class="sc-68f59890-1 fvMflg"
+    >
+      <img
+        alt="An apple mobile which is nothing like apple"
+        class="sc-396cbb3d-0 gpTstX"
+        data-nimg="fill"
+        decoding="async"
+        description="An apple mobile which is nothing like apple"
+        fit="cover"
+        loading="lazy"
+        sizes="auto"
+        src="/_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=3840&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=16&q=75 16w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=32&q=75 32w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.dummyjson.com%2Fproduct-images%2F1%2Fthumbnail.jpg&w=3840&q=75 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+      />
+      <div
+        class="sc-68f59890-12 jfnmnO"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 5H3a1 1 0 0 0-1 1v4h.893c.996 0 1.92.681 2.08 1.664A2.001 2.001 0 0 1 3 14H2v4a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-4h-1a2.001 2.001 0 0 1-1.973-2.336c.16-.983 1.084-1.664 2.08-1.664H22V6a1 1 0 0 0-1-1zM9 9a1 1 0 1 1 0 2 1 1 0 1 1 0-2zm-.8 6.4 6-8 1.6 1.2-6 8-1.6-1.2zM15 15a1 1 0 1 1 0-2 1 1 0 1 1 0 2z"
+          />
+        </svg>
+         
+        <strong
+          class="sc-68f59890-6"
+        >
+          12.96
+          %
+        </strong>
+      </div>
+    </div>
+    <div
+      class="sc-68f59890-3 dQMuPQ"
+    >
+      <h5
+        class="sc-68f59890-4 kuWXAA"
+        title="iPhone 9"
+      >
+        iPhone 9
+      </h5>
+      <div
+        class="sc-68f59890-2 gAiazy"
+      >
+        <button
+          class="sc-fedb6ee7-0 cNSzeF sc-4a5d1c39-0 bhhzXd"
+          color="secondary"
+          data-testid="card-product-edit"
+          title="Editar produto"
+        >
+          <span
+            class="sc-4a5d1c39-1 clKfGv"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 1024 1024"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          class="sc-fedb6ee7-0 cNSzeF sc-4a5d1c39-0 bhhzXd"
+          color="secondary"
+          data-testid="card-product-delete"
+          title="Apagar produto"
+        >
+          <span
+            class="sc-4a5d1c39-1 clKfGv"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 1024 1024"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M864 256H736v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zm-200 0H360v-72h304v72z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="sc-68f59890-7 kIDqBH"
+    >
+      <div
+        class="sc-68f59890-10 irYXXI"
+        title="Tags"
+      >
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+         
+        <span
+          class="sc-68f59890-14 kmhbnk"
+          title="Marca Apple"
+        >
+          Apple
+        </span>
+        <span
+          class="sc-68f59890-14 kmhbnk"
+          title="Categoria smartphones"
+        >
+          smartphones
+        </span>
+      </div>
+      <div
+        class="sc-68f59890-10 irYXXI"
+      >
+        <div
+          class="sc-68f59890-11 ezSSoK"
+          title="Pontos de Avaliação"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.004-.001.274-.11a.75.75 0 0 1 .558 0l.274.11.004.001 6.971 2.789Zm-1.374.527L8 5.962 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+           
+          94
+        </div>
+        <div
+          class="sc-68f59890-11 ezSSoK"
+          title="Pontos de Avaliação"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+            />
+          </svg>
+           
+          4.69
+        </div>
+      </div>
+      <div
+        class="sc-68f59890-10 irYXXI"
+        title="Tags"
+      >
+        <span
+          class="sc-68f59890-5 dvXGCj"
+        >
+          An apple mobile which is nothing like apple
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-68f59890-8 cBInqg"
+    >
+      <div
+        class="sc-68f59890-9 iXcXfY"
+      >
+        <small
+          class="sc-68f59890-13 dRNdjt"
+        >
+          R$ 549,00
+        </small>
+        <strong
+          class="sc-68f59890-6"
+        >
+          R$ 477,85
+        </strong>
+      </div>
+    </div>
+  </div>
+</div>
+`;

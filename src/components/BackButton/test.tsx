@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import { withThemeProvider } from '~/theme/utils/withThemeProvider';
 
@@ -10,5 +10,13 @@ describe('BackButton', () => {
     expect(container).toMatchSnapshot();
   });
 
-  // TODO: should click and back router/navigation;
+  test('Should call onClick handler when clicked', () => {
+    const onClickMock = jest.fn();
+    render(withThemeProvider(<BackButton onClick={onClickMock} />));
+
+    const backButton = screen.getByText('Voltar');
+    fireEvent.click(backButton);
+
+    expect(onClickMock).toHaveBeenCalled();
+  });
 });

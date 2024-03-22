@@ -47,8 +47,20 @@ export const CardProduct: FC<Props> = ({ product, className, onDelete, onEdit })
       <Header>
         <Title title={title}>{title}</Title>
         <ActionsContent>
-          <ButtonIcon color="secondary" icon={AiFillEdit} onClick={onEdit} title="Editar produto" />
-          <ButtonIcon color="secondary" icon={AiFillDelete} onClick={onDelete} title="Apagar produto" />
+          <ButtonIcon
+            color="secondary"
+            data-testid="card-product-edit"
+            icon={AiFillEdit}
+            onClick={onEdit}
+            title="Editar produto"
+          />
+          <ButtonIcon
+            color="secondary"
+            data-testid="card-product-delete"
+            icon={AiFillDelete}
+            onClick={onDelete}
+            title="Apagar produto"
+          />
         </ActionsContent>
       </Header>
 
