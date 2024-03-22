@@ -21,7 +21,7 @@ export const FormSearchProducts: FC = () => {
 
   return (
     <Fragment>
-      <Grid displayType="inline-flex" gridGap="10px" margin={[1]} padding={[2, 1]}>
+      <Grid displayType="inline-flex" gridGap="10px" padding={[2, 1]}>
         <InputText
           label="Pesquisar"
           name="search"

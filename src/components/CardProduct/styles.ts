@@ -4,6 +4,7 @@ import { useThemeFontStyle, useThemeSpace } from '~/theme/utils';
 
 export const Root = styled.div`
   max-width: 400px;
+  min-height: 100%;
   margin: auto;
   overflow: hidden;
   cursor: pointer;
@@ -60,6 +61,15 @@ export const Title = styled.h5`
   `}
 `;
 
+export const Description = styled.span`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  height: 55px;
+`;
+
 export const Strong = styled.strong``;
 
 export const Body = styled.div`
@@ -100,6 +110,8 @@ export const FooterPrice = styled.div`
 
 export const Row = styled.div`
   display: inline-flex;
+  align-items: center;
+
   ${({ theme }) => css`
     grid-gap: ${theme.space * 2}px;
   `}
@@ -142,6 +154,11 @@ export const Small = styled.small`
 `;
 
 export const Tag = styled.span`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  white-space: nowrap;
+
   ${({ theme }) => css`
     ${useThemeFontStyle('small')};
     ${useThemeSpace([1], 'padding')};

@@ -1,4 +1,6 @@
+/* eslint-disable typescript-sort-keys/interface */
 interface PropsMediaResponsiveType {
+  [key: string]: string;
   xs: string;
   sm: string;
   md: string;

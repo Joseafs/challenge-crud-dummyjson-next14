@@ -12,6 +12,7 @@ import {
   ActionsContent,
   Body,
   Column,
+  Description,
   DiscountPrice,
   Footer,
   FooterPrice,
@@ -52,10 +53,10 @@ export const CardProduct: FC<Props> = ({ product, className, onDelete, onEdit })
       </Header>
 
       <Body>
-        <Column title="Tags">
+        <Row title="Tags">
           <HiOutlineHashtag /> <Tag title={`Marca ${brand}`}>{brand}</Tag>
           <Tag title={`Categoria ${category}`}>{category}</Tag>
-        </Column>
+        </Row>
         <Row>
           <Column title="Pontos de Avaliação">
             <BsBoxFill /> {stock}
@@ -63,6 +64,9 @@ export const CardProduct: FC<Props> = ({ product, className, onDelete, onEdit })
           <Column title="Pontos de Avaliação">
             <AiFillStar /> {rating}
           </Column>
+        </Row>
+        <Row title="Tags">
+          <Description>{description}</Description>
         </Row>
       </Body>
 

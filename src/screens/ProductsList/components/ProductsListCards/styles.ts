@@ -7,7 +7,7 @@ export const Root = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
 
   ${({ theme }) => css`
-    ${useThemeSpace([3, 2], 'margin')};
+    ${useThemeSpace([2, 1], 'padding')};
     grid-gap: ${theme.space * 3}px;
 
     @media ${useMediaQuery().maxW.md} {

@@ -6,7 +6,7 @@ export const useThemeFontStyle = (type: PropsFontSizesKeys = 'medium') => {
   const theme = useTheme();
 
   return {
-    fontLineHeights: theme.fontLineHeights[type],
     fontSize: theme.fontSizes[type],
+    lineHeight: theme.fontLineHeights[type],
   };
 };

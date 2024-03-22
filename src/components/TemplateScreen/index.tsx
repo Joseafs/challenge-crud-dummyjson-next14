@@ -1,9 +1,9 @@
 import { useRouter } from 'next/navigation';
 import { FC, ReactNode, useCallback } from 'react';
 
-import { BackButton } from '~/components';
+import { BackButton, Container, Grid } from '~/components';
 
-import { Body, Header, Root } from './styled';
+import { Body, Footer, Header, Root } from './styled';
 
 type Props = {
   children: ReactNode;
@@ -22,11 +22,17 @@ export const TemplateScreen: FC<Props> = ({ children }) => {
   return (
     <Root>
       <Header>
-        <BackButton onClick={onBack} />
+        <Container fixed>
+          <Grid displayContent="flex-start" displayType="flex">
+            <BackButton onClick={onBack} />
+          </Grid>
+        </Container>
         {/* TODO: circle with user image ? */}
       </Header>
-      <Body>{children}</Body>
-      {/* TODO: footer ? */}
+      <Body>
+        <Container fixed>{children}</Container>
+      </Body>
+      <Footer />
     </Root>
   );
 };

@@ -31,3 +31,13 @@ export const Body = styled.main`
   display: flex;
   flex-direction: column;
 `;
+
+export const Footer = styled.footer`
+  display: inline-flex;
+  min-height: 40px;
+
+  ${({ theme }) => css`
+    background-color: ${theme.palette.secondary.main};
+    box-shadow: ${theme.shadows[2]};
+  `}
+`;

@@ -2,6 +2,7 @@ export { BackButton } from './BackButton';
 export { Button } from './Button';
 export { ButtonIcon } from './ButtonIcon';
 export { CardProduct } from './CardProduct';
+export { Container } from './Container';
 export { Grid } from './Grid';
 export { ImageFit } from './ImageFit';
 export { InputText } from './InputText';
