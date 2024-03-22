@@ -22,7 +22,7 @@ const ProductEditWithProvider: FC<Props> = ({ id }) => {
   });
 
   return (
-    <TemplateScreen>
+    <TemplateScreen buttonBackRoute="/products/" hasBackButton>
       {loading ? (
         'Carregando'
       ) : (
