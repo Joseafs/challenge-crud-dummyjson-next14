@@ -46,8 +46,6 @@ export const ProductsListCards: FC = () => {
   return (
     productsList && (
       <Root>
-        {loading && <div>carregando</div>}
-
         {paginatedProductsList?.map((product, index) => {
           if (product.isDeleted) {
             return;
