@@ -6,5 +6,6 @@ export { getProductsCategories } from './getProductsCategories';
 export { saveProduct } from './saveProduct';
 
 export const apiRouteProducts = '/products';
-export const apiRouteProductAdd = '/products/add';
-export const apiRouteProductsCategories = '/products/categories';
+export const apiRouteProductsCategories = `${apiRouteProducts}/categories`;
+
+export const apiRouteProductAdd = `${apiRouteProducts}/add`;

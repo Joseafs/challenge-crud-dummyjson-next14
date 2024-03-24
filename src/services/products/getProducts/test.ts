@@ -13,7 +13,7 @@ import { FetchProductsParams } from './types';
 import { getProducts } from '.';
 
 describe('getProducts', () => {
-  test('should match data', async () => {
+  test('should match data on success', async () => {
     const mock = new MockAdapter(api);
     mock.onGet(apiRouteProducts).reply(HttpStatusCode.Ok, mockProductsResponse);
 
@@ -31,9 +31,9 @@ describe('getProducts', () => {
       skip: 58,
     };
 
-    const getRouteWithParams = `${apiRouteProducts}?${encodeParamsToString(queryParams)}`;
+    const routeWithParams = `${apiRouteProducts}?${encodeParamsToString(queryParams)}`;
 
-    mock.onGet(getRouteWithParams).reply(HttpStatusCode.Ok, mockProductsResponse);
+    mock.onGet(routeWithParams).reply(HttpStatusCode.Ok, mockProductsResponse);
 
     const data = await getProducts({ query: queryParams });
 
@@ -42,7 +42,7 @@ describe('getProducts', () => {
     mock.restore();
   });
 
-  test('should throw RequestError', async () => {
+  test('should throw error', async () => {
     const errorText = faker.lorem.paragraph();
 
     const mock = new MockAdapter(api);

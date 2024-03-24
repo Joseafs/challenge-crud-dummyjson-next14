@@ -11,7 +11,7 @@ import { mockProductResponse } from './mock';
 import { addProduct } from '.';
 
 describe('addProduct', () => {
-  test('should match data when get by id', async () => {
+  test('should match data on success', async () => {
     const mock = new MockAdapter(api);
     const body = faker.word.words(5);
 
@@ -24,7 +24,7 @@ describe('addProduct', () => {
     mock.restore();
   });
 
-  test('should throw RequestError', async () => {
+  test('should throw error', async () => {
     const errorText = faker.lorem.paragraph();
     const body = faker.word.words(5);
 

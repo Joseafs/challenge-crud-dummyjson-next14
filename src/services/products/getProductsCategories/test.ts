@@ -11,7 +11,7 @@ import { mockProductsCategoriesResponse } from './mock';
 import { getProductsCategories } from '.';
 
 describe('getProductsCategories', () => {
-  test('should match data when get by id', async () => {
+  test('should match data on success', async () => {
     const mock = new MockAdapter(api);
 
     mock.onGet(apiRouteProductsCategories).reply(HttpStatusCode.Ok, mockProductsCategoriesResponse);
@@ -23,10 +23,10 @@ describe('getProductsCategories', () => {
     mock.restore();
   });
 
-  test('should throw RequestError', async () => {
+  test('should throw error', async () => {
+    const mock = new MockAdapter(api);
     const errorText = faker.lorem.paragraph();
 
-    const mock = new MockAdapter(api);
     mock.onGet(apiRouteProductsCategories).reply(HttpStatusCode.BadRequest, { error: errorText });
 
     try {

@@ -1,8 +1,7 @@
 /* eslint-disable sort-keys */
-import { ProductData } from './types';
+import { AddProductData } from './types';
 
-export const mockProductResponse: ProductData = {
-  id: 199,
+export const mockProductResponse: AddProductData = {
   title: 'iPhone 98',
   description: 'An apple mobile which is nothing like apple',
   price: 549,

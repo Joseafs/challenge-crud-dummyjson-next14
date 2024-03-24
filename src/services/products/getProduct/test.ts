@@ -11,13 +11,13 @@ import { mockProductResponse } from './mock';
 import { getProduct } from '.';
 
 describe('getProduct', () => {
-  test('should match data when get by id', async () => {
+  test('should match data on success', async () => {
     const mock = new MockAdapter(api);
     const id = faker.number.int(100);
 
-    const getRouteWithId = `${apiRouteProducts}/${id}`;
+    const routeWithId = `${apiRouteProducts}/${id}`;
 
-    mock.onGet(getRouteWithId).reply(HttpStatusCode.Ok, mockProductResponse);
+    mock.onGet(routeWithId).reply(HttpStatusCode.Ok, mockProductResponse);
 
     const data = await getProduct(id);
 
@@ -26,13 +26,13 @@ describe('getProduct', () => {
     mock.restore();
   });
 
-  test('should throw RequestError', async () => {
+  test('should throw error', async () => {
     const errorText = faker.lorem.paragraph();
     const id = faker.number.int(100);
-    const getRouteWithId = `${apiRouteProducts}/${id}`;
+    const routeWithId = `${apiRouteProducts}/${id}`;
 
     const mock = new MockAdapter(api);
-    mock.onGet(getRouteWithId).reply(HttpStatusCode.BadRequest, { error: errorText });
+    mock.onGet(routeWithId).reply(HttpStatusCode.BadRequest, { error: errorText });
 
     try {
       await getProduct(id);

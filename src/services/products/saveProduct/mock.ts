@@ -1,7 +1,7 @@
 /* eslint-disable sort-keys */
 import { ProductData } from './types';
 
-export const mockProductSaveResponse: ProductData = {
+export const mockSaveProductResponse: ProductData = {
   id: 1,
   title: 'iPhone 9',
   description: 'An apple mobile which is nothing like apple',
