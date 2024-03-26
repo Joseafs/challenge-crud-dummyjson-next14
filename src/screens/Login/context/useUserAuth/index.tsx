@@ -3,8 +3,8 @@ import { createContext, FC, PropsWithChildren, useCallback, useContext, useState
 
 import { setAxiosBearerToken } from '~/services/api';
 import { getMe, postLogin } from '~/services/auth';
-import { UserData } from '~/services/auth/getMe/types';
-import { FetchAuthDataParams } from '~/services/auth/postLogin/types';
+import { AuthDataResponse, FetchAuthDataParams } from '~/services/auth/postLogin/types';
+import { getSessionStore } from '~/utils/stores/session';
 
 import { UserAuthContextProps } from './types';
 
@@ -13,53 +13,55 @@ export const UserAuthContext = createContext({} as UserAuthContextProps);
 export const UserAuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
 
-  const [userData, setUserData] = useState<UserData>();
+  // TODO: initial state user
+  const [userData, setUserData] = useState<AuthDataResponse>();
   const [loading, setLoading] = useState(false);
 
-  const getUserAuthentication = useCallback(async (values: FetchAuthDataParams) => {
+  const getUserAuthentication = useCallback(
+    async (values: FetchAuthDataParams) => {
+      setLoading(true);
+
+      const jsonFormatValues = JSON.stringify(values);
+
+      try {
+        const data = await postLogin(jsonFormatValues);
+        setUserData(data);
+
+        alert(`Login efetuado com sucesso, seja bem vindo ${data.username}!`);
+        router.push('/products/');
+      } catch (e) {
+        alert('Parece que o usuário/senha não conferem, tente novamente !');
+      } finally {
+        setLoading(false);
+      }
+    },
+    [router],
+  );
+
+  const isTokenValid = useCallback(async () => {
     setLoading(true);
 
-    const jsonFormatValues = JSON.stringify(values);
+    const tokenCode = await getSessionStore<string>('token');
 
     try {
-      const { token } = await postLogin(jsonFormatValues);
-
-      setAxiosBearerToken(`Bearer ${token}`);
-
-      // TODO: need store token value to avoid refresh problems
-
-      alert('Login efetuado com sucesso, seja bem vindo !');
-      // router.push('/products/');
+      if (tokenCode) {
+        setAxiosBearerToken(tokenCode);
+        await getMe();
+      }
     } catch (e) {
-      alert('Parece que o usuário/senha não conferem, tente novamente !');
+      router.push('/login/');
     } finally {
       setLoading(false);
     }
-  }, []);
-
-  const getMeData = useCallback(async () => {
-    setLoading(true);
-
-    try {
-      const data = await getMe();
-
-      alert('Token valido!');
-
-      setUserData(data);
-      // router.push('/products/');
-    } catch (e) {
-      alert('Token invalido!');
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+  }, [router]);
 
   return (
     <UserAuthContext.Provider
       value={{
-        getMeData,
         getUserAuthentication,
+        isTokenValid,
         loading,
+        userData,
       }}
     >
       {children}

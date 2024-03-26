@@ -13,10 +13,6 @@ import { Background, LoginBox } from './styles';
 const LoginWithProvider: FC = () => {
   const { loading } = useUserAuth();
 
-  // useDidMount(() => {
-  //   getMeData();
-  // });
-
   return (
     <TemplateScreen buttonBackRoute="/products/" loading={loading}>
       <Fragment>
