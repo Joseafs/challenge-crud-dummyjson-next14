@@ -1,11 +1,13 @@
+import { Metadata } from 'next';
+
 import { ProductEdit } from '~/screens/ProductEdit';
 
-interface ProductProps {
-  params: {
-    id: number;
-  };
-}
+import { ProductEditProps } from './types';
 
-export default function ProductEditPage({ params }: ProductProps) {
+export const metadata: Metadata = {
+  title: 'Edição do produto',
+};
+
+export default function ProductEditPage({ params }: ProductEditProps) {
   return <ProductEdit id={params.id} />;
 }

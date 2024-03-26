@@ -1,5 +1,11 @@
+import { Metadata } from 'next';
+
 import { ProductsList } from '~/screens/ProductsList';
 
-export default function ExamplePage() {
+export const metadata: Metadata = {
+  title: 'Lista de produtos',
+};
+
+export default function ProductsPage() {
   return <ProductsList />;
 }
