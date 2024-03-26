@@ -42,7 +42,7 @@ describe('TemplateInput', () => {
     expect(labelElement).toBeInTheDocument();
   });
 
-  test.only('should show error element and message', () => {
+  test('should show error element and message', () => {
     const { children, errorDescription } = mockRandomValues();
     render(
       withThemeProvider(
