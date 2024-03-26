@@ -1,7 +1,7 @@
 /* eslint-disable sort-keys */
-import { User } from './types';
+import { UserData } from './types';
 
-export const mockUserResponse: User = {
+export const mockUserResponse: UserData = {
   id: 26,
   firstName: 'Griffin',
   lastName: 'Braun',

@@ -1,4 +1,4 @@
-export interface AuthData {
+export interface FetchAuthDataParams {
   password: string;
   username: string;
 }

@@ -1,6 +1,6 @@
 import { apiGet } from '~/services/api/methods';
 import { apiAuthRoute } from '~/services/auth';
 
-import { User } from './types';
+import { UserData } from './types';
 
-export const getMe = () => apiGet<User>(`${apiAuthRoute}/me`);
+export const getMe = () => apiGet<UserData>(`${apiAuthRoute}/me`);

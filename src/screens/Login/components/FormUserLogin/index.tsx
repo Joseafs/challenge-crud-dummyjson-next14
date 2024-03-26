@@ -28,7 +28,7 @@ export const FormUserLogin: FC = () => {
           name="password"
           onChange={handleChange}
           placeholder={`Informe sua senha`}
-          type="text"
+          type="password"
           value={values.password}
           width={'flex'}
         />

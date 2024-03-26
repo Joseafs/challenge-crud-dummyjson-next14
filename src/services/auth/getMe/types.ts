@@ -45,7 +45,7 @@ interface Crypto {
   wallet: string;
 }
 
-export interface User {
+export interface UserData {
   address: Address;
   age: number;
   bank: Bank;

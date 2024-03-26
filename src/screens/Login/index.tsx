@@ -7,19 +7,18 @@ import { TemplateScreen } from '~/components/TemplateScreen';
 
 import { FormUserLogin } from './components/FormUserLogin';
 import { FormUserLoginProvider } from './components/FormUserLogin/components/FormUserLoginProvider';
-import { UserAuthProvider } from './context/useUserAuth';
+import { UserAuthProvider, useUserAuth } from './context/useUserAuth';
 import { Background, LoginBox } from './styles';
 
 const LoginWithProvider: FC = () => {
-  // const { loading } = useUserAuth();
+  const { loading } = useUserAuth();
 
   // useDidMount(() => {
-  //TODO: is userd logged ?
-  // if yes: redir produts;
+  //   getMeData();
   // });
 
   return (
-    <TemplateScreen buttonBackRoute="/products/">
+    <TemplateScreen buttonBackRoute="/products/" loading={loading}>
       <Fragment>
         <Background />
         <LoginBox>

@@ -1,21 +1,21 @@
 import { Formik } from 'formik';
 import { FC, PropsWithChildren } from 'react';
 
+import { useUserAuth } from '~/screens/Login/context/useUserAuth';
+
 import { RootForm } from './styles';
 import { FormikUserLoginProps } from './types';
 import { userLoginValidationShema } from './utils/userValidation';
 
 export const FormUserLoginProvider: FC<PropsWithChildren> = ({ children }) => {
-  // const {  } = useUserAuth();
+  const { getUserAuthentication } = useUserAuth();
+
   return (
     <Formik<FormikUserLoginProps>
       enableReinitialize
       initialValues={{ password: '', username: '' }}
       onSubmit={async (values, { setSubmitting }) => {
-        // TODO: auth login with values
-
-        // eslint-disable-next-line no-console
-        console.log('🚀 ~ onSubmit={ ~ values:', values);
+        getUserAuthentication(values);
 
         setSubmitting(false);
       }}
