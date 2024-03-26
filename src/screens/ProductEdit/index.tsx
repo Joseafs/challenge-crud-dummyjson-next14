@@ -26,7 +26,7 @@ const ProductEditWithProvider: FC<ProviderProductProps> = ({ createMode }) => {
   }, [createMode, product.title]);
 
   return (
-    <TemplateScreen buttonBackRoute="/products/" hasBackButton loading={loading}>
+    <TemplateScreen buttonBackRoute="/products/" hasBackButton hasFooter hasHeader loading={loading}>
       <Fragment>
         <Grid displayContent="space-between" displayType="inline-flex" padding={[2, 1]}>
           <PageTitle color="primary">{pageTitle}</PageTitle>

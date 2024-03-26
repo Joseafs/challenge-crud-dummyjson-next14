@@ -1,19 +1,20 @@
 import { useRouter } from 'next/navigation';
-import { FC, ReactNode, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 import { BackButton, Container, Grid } from '~/components';
 import { Loading } from '~/components/Loading';
 
 import { Body, Footer, Header, Root } from './styled';
+import { Props } from './types';
 
-type Props = {
-  buttonBackRoute?: string;
-  children: ReactNode;
-  hasBackButton?: boolean;
-  loading?: boolean;
-};
-
-export const TemplateScreen: FC<Props> = ({ children, hasBackButton = false, buttonBackRoute, loading = true }) => {
+export const TemplateScreen: FC<Props> = ({
+  children,
+  hasBackButton = false,
+  buttonBackRoute,
+  loading = false,
+  hasFooter = false,
+  hasHeader = false,
+}) => {
   const router = useRouter();
 
   const handleBack = useCallback(() => {
@@ -25,24 +26,23 @@ export const TemplateScreen: FC<Props> = ({ children, hasBackButton = false, but
     router.back();
   }, [buttonBackRoute, router]);
 
-  // TODO: need loading here for pages and waits
-  // TODO: need specift maxWidth
-
   return (
     <Root>
       {loading && <Loading />}
-      <Header>
-        <Container fixed>
-          <Grid displayContent="flex-start" displayType="flex">
-            {hasBackButton && <BackButton onClick={handleBack} />}
-          </Grid>
-        </Container>
-        {/* TODO: circle with user image ? */}
-      </Header>
+      {hasHeader && (
+        <Header>
+          <Container fixed>
+            <Grid displayContent="flex-start" displayType="flex">
+              {hasBackButton && <BackButton onClick={handleBack} />}
+            </Grid>
+          </Container>
+          {/* TODO: circle with user image ? */}
+        </Header>
+      )}
       <Body>
         <Container fixed>{children}</Container>
       </Body>
-      <Footer />
+      {hasFooter && <Footer />}
     </Root>
   );
 };

@@ -3,17 +3,13 @@ import { FC, Fragment, useCallback, useMemo } from 'react';
 
 import { Button, Grid, InputText, Textarea } from '~/components';
 import { ImageGallery } from '~/components/ImageGallery';
+import { SelectOptions } from '~/components/Select/types';
 import { useProductEdit } from '~/screens/ProductEdit/context/useProduct';
 import { ProductData } from '~/services/products/getProduct/types';
 import { generateArray } from '~/utils/generateArray';
 
 import { InputImageURL } from './components/InputImageURL';
 import { GridTemplateInputs, SelectRoot } from './styles';
-
-interface Example {
-  label: string;
-  value: string;
-}
 
 const definitionOfItem = 'produto';
 
@@ -48,7 +44,7 @@ export const FormEditProduct: FC = () => {
 
   const categoriesSelectOption = useMemo(
     () =>
-      generateArray<Example>(productsCategories.length, (_, index) => ({
+      generateArray<SelectOptions>(productsCategories.length, (_, index) => ({
         label: productsCategories[index],
         value: productsCategories[index],
       })),

@@ -37,7 +37,9 @@ export const theme: PropsTheme = {
       white: 'rgb(255, 255, 255)',
     },
     primary: {
-      main: 'rgb(205, 35, 35)',
+      dark: 'rgb(190, 19, 22)',
+      main: 'rgb(246, 81, 76)',
+      light: 'rgb(244, 154, 153)',
       text: 'rgb(255, 255, 255)',
     },
     secondary: {

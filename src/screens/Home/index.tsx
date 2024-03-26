@@ -8,7 +8,7 @@ export const Home: FC = () => {
   const router = useRouter();
 
   useDidMount(() => {
-    router.replace('/products/');
+    router.replace('/login/');
   });
 
   return <></>;

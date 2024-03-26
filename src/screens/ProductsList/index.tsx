@@ -16,7 +16,7 @@ import { ProductsListProvider, useProductsList } from './context/useProducts';
 export const ProductsListWithProvider: FC = () => {
   const { loading } = useProductsList();
   return (
-    <TemplateScreen loading={loading}>
+    <TemplateScreen hasFooter hasHeader loading={loading}>
       <Grid displayContent="space-between" displayType="inline-flex" padding={[2, 1]}>
         <PageTitle color="primary">Produtos</PageTitle>
         <Link href="/products/add/">
