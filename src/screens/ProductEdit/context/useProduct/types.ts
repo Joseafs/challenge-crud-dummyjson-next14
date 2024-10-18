@@ -12,7 +12,7 @@ export interface ProductContext {
   getProductData: () => Promise<void>;
   loading: boolean;
   product: ProductData;
-  productsCategories: ProductsCategoriesData;
+  productsCategories: ProductsCategoriesData[];
   saveProductById: (values: ProductData) => Promise<void>;
 }
 

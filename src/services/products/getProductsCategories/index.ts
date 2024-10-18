@@ -3,4 +3,4 @@ import { apiRouteProductsCategories } from '~/services/products';
 
 import { ProductsCategoriesData } from './types';
 
-export const getProductsCategories = () => apiGet<ProductsCategoriesData>(apiRouteProductsCategories);
+export const getProductsCategories = () => apiGet<ProductsCategoriesData[]>(apiRouteProductsCategories);

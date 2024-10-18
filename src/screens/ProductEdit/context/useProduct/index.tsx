@@ -14,7 +14,7 @@ export const ProductEditProvider: FC<ProviderProductProps> = ({ children, create
   const router = useRouter();
 
   const [productData, setProductData] = useState<ProductData>(initialProductDataState);
-  const [productsCategoriesData, setProductsCategoriesData] = useState<ProductsCategoriesData>([]);
+  const [productsCategoriesData, setProductsCategoriesData] = useState<ProductsCategoriesData[]>([]);
 
   const [loading, setLoading] = useState(true);
 

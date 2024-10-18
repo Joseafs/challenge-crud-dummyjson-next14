@@ -22,16 +22,18 @@ export const ProductsListProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const productsList: ProductData[] = useMemo(() => {
     const { products } = productsData;
-
     const filteredList = filterProductsBySearch(products, productsSearch);
 
+    const withBrand = filteredList.filter((product) => product.brand);
+    const withoutBrand = filteredList.filter((product) => !product.brand);
+
     if (productsSortOption === 'title') {
-      filteredList.sort((a, b) => a.title.localeCompare(b.title));
+      withBrand.sort((a, b) => (a.title ?? '').localeCompare(b.title ?? ''));
     } else if (productsSortOption === 'brand') {
-      filteredList.sort((a, b) => a.brand.localeCompare(b.brand));
+      withBrand.sort((a, b) => (a.brand ?? '').localeCompare(b.brand ?? ''));
     }
 
-    return filteredList;
+    return withBrand.concat(withoutBrand);
   }, [productsData, productsSearch, productsSortOption]);
 
   const totalEnabledProducts = useMemo(() => {

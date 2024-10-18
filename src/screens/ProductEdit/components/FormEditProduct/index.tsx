@@ -10,7 +10,7 @@ import { generateArray } from '~/utils/generateArray';
 import { InputImageURL } from './components/InputImageURL';
 import { GridTemplateInputs, SelectRoot } from './styles';
 
-interface Example {
+interface SelectOption {
   label: string;
   value: string;
 }
@@ -48,9 +48,9 @@ export const FormEditProduct: FC = () => {
 
   const categoriesSelectOption = useMemo(
     () =>
-      generateArray<Example>(productsCategories.length, (_, index) => ({
-        label: productsCategories[index],
-        value: productsCategories[index],
+      generateArray<SelectOption>(productsCategories.length, (index) => ({
+        label: productsCategories[index]?.name,
+        value: productsCategories[index]?.slug,
       })),
     [productsCategories],
   );
